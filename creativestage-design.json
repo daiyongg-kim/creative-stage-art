@@ -1,0 +1,483 @@
+{
+  "website": {
+    "name": "Creative Stage",
+    "domain": "creativestage.ca",
+    "type": "Art Education & Creative Learning Center",
+    "description": "Creative Stage offers art classes in different mediums that are available for all ages and all levels. They help people learn more about their story, approach, and what their studio has to offer, helping to unleash your inner artist!",
+    "target_audience": "Children, families, and adults seeking creative expression and art education",
+    "location": "Canada"
+  },
+  "design": {
+    "theme": "Magical Creative Playground",
+    "style": "Whimsical, interactive, vibrant, and family-centered",
+    "layout": "Responsive design with mobile-first approach and accessibility features",
+    "color_scheme": {
+      "primary": "#FF6B6B (Coral Pink)",
+      "secondary": "#4ECDC4 (Turquoise)", 
+      "accent": "#FFE66D (Sunny Yellow)",
+      "success": "#95E1D3 (Mint Green)",
+      "background": "#FFF8E1 (Cream)",
+      "text": "#2C3E50 (Dark Blue-Gray)",
+      "fun_colors": ["#FF9FF3 (Pink)", "#54A0FF (Blue)", "#5F27CD (Purple)", "#00D2D3 (Cyan)"]
+    },
+    "typography": {
+      "headers": "Fredoka One, Comic Sans MS - Playful, rounded, child-friendly",
+      "body": "Open Sans, Arial - Clean, readable, accessible",
+      "accent": "Pacifico - Hand-drawn style for special elements",
+      "sizes": {
+        "hero": "clamp(2.5rem, 8vw, 4rem)",
+        "h1": "clamp(2rem, 6vw, 3rem)",
+        "h2": "clamp(1.5rem, 4vw, 2.25rem)",
+        "body": "clamp(1rem, 2.5vw, 1.125rem)"
+      }
+    },
+    "animations": {
+      "entrance": "Gentle bounce and fade-in effects",
+      "hover": "Playful scale and color transitions",
+      "loading": "Colorful paint splash animations",
+      "page_transitions": "Smooth sliding effects with artistic elements"
+    },
+    "visual_elements": {
+      "shapes": "Rounded corners, organic shapes, hand-drawn elements",
+      "patterns": "Paint splashes, crayon textures, watercolor backgrounds",
+      "icons": "Playful, colorful, child-friendly icon set",
+      "illustrations": "Custom artwork featuring diverse children creating art"
+    }
+  },
+  "navigation": {
+    "main_menu": [
+      {
+        "name": "Home",
+        "url": "/",
+        "description": "Homepage with main introduction and overview"
+      },
+      {
+        "name": "Preschool",
+        "url": "/preschool",
+        "description": "Preschool programs and classes for young children"
+      },
+      {
+        "name": "Before & After School",
+        "url": "/before-after-school",
+        "description": "Before and after school care programs"
+      },
+      {
+        "name": "Classes",
+        "url": "/classes",
+        "description": "Various art classes and programs offered"
+      },
+      {
+        "name": "Birthday Party",
+        "url": "/birthday-party",
+        "description": "Birthday party packages and creative celebrations"
+      }
+    ]
+  },
+  "services": {
+    "programs": [
+      {
+        "name": "School-Age Programs",
+        "age_range": "5-12 years",
+        "price": "Starting from $65 CAD",
+        "description": "Creative programs designed for school-age children"
+      },
+      {
+        "name": "Arts & Crafts Sessions",
+        "duration": "9 hours",
+        "price": "From $65 CAD",
+        "description": "Extended arts and crafts learning sessions"
+      },
+      {
+        "name": "Creative Expression Experiences",
+        "price": "$85 CAD",
+        "description": "Focused creative expression and artistic development"
+      },
+      {
+        "name": "Private 1:1 Sessions",
+        "duration": "30 minutes",
+        "price": "$30 CAD",
+        "description": "Individual tutoring and personalized art instruction"
+      },
+      {
+        "name": "Me & Mommy Programs",
+        "price": "From $55 CAD",
+        "description": "Parent-child bonding through creative activities"
+      },
+      {
+        "name": "Design Thinking Process",
+        "duration": "2 hours",
+        "price": "$100 CAD",
+        "description": "Structured creative problem-solving and design methodology"
+      }
+    ]
+  },
+  "content_structure": {
+    "homepage": {
+      "hero_section": {
+        "title": "🎨 Welcome to Creative Stage! 🌟",
+        "subtitle": "Where Every Child is an Artist Waiting to Shine!",
+        "description": "Join our magical world of colors, creativity, and endless possibilities. From tiny tots to big kids, we make art FUN for everyone!",
+        "cta_primary": "Start Creating Today!",
+        "cta_secondary": "Watch Fun Videos",
+        "background": "Animated watercolor splash with diverse children painting, crafting, and laughing",
+        "interactive_elements": {
+          "paint_splash_animation": "Colorful paint drops that follow cursor movement",
+          "floating_art_supplies": "Gentle floating animation of brushes, crayons, and scissors",
+          "smile_counter": "Real-time counter showing 'Smiles Created Today: [number]'"
+        },
+        "trust_badges": ["🏆 Award-Winning Programs", "👨‍👩‍👧‍👦 Family-Owned", "🌟 500+ Happy Families"]
+      },
+      "about_section": {
+        "title": "🌈 Our Magical Mission",
+        "main_content": "At Creative Stage, we believe every child has a rainbow of creativity inside them! We're not just about making pretty pictures - we're about building confidence, friendship, and joy through art.",
+        "philosophy": "🎯 Our Super Special Approach: It's not about being perfect, it's about having FUN and trying new things!",
+        "core_values": [
+          {
+            "icon": "🤗",
+            "title": "Every Child Matters",
+            "description": "We celebrate each child's unique creative voice"
+          },
+          {
+            "icon": "🎉",
+            "title": "Fun First!",
+            "description": "Learning happens best when we're laughing and playing"
+          },
+          {
+            "icon": "🌟",
+            "title": "Process Over Product",
+            "description": "The joy is in the creating, not just the final artwork"
+          },
+          {
+            "icon": "🤝",
+            "title": "Family Together",
+            "description": "Building memories and bonds through shared creativity"
+          }
+        ],
+        "stats": {
+          "years_operating": "10+ Years of Magic",
+          "children_served": "1,000+ Little Artists",
+          "family_satisfaction": "98% Happy Families",
+          "art_projects": "10,000+ Masterpieces Created"
+        }
+      },
+      "programs_section": {
+        "title": "Our Programs",
+        "description": "Structured programs for different age groups",
+        "program_cards": [
+          {
+            "title": "Preschool Programs",
+            "description": "Creative development for our youngest artists",
+            "age": "Ages 3-5",
+            "link": "/preschool"
+          },
+          {
+            "title": "School-Age Classes",
+            "description": "After school creative learning and expression",
+            "age": "Ages 5-12",
+            "link": "/classes"
+          },
+          {
+            "title": "Birthday Parties",
+            "description": "Creative celebrations for special occasions",
+            "age": "All ages",
+            "link": "/birthday-party"
+          }
+        ]
+      },
+      "testimonials_section": {
+        "title": "What Parents Say",
+        "testimonials": [
+          {
+            "quote": "My child's confidence has grown tremendously through Creative Stage programs",
+            "author": "Parent"
+          },
+          {
+            "quote": "The focus on process over product is exactly what children need",
+            "author": "Parent"
+          }
+        ]
+      }
+    },
+    "preschool_page": {
+      "title": "Preschool Programs",
+      "description": "Creative programs designed specifically for preschool-age children",
+      "age_range": "Ages 3-5",
+      "benefits": [
+        "Develop fine motor skills",
+        "Foster creativity and imagination",
+        "Build confidence through artistic expression",
+        "Learn to follow instructions",
+        "Socialize with peers in creative environment"
+      ],
+      "activities": [
+        "Drawing and painting",
+        "Crafts and collage",
+        "Clay and sculpture",
+        "Mixed media exploration"
+      ]
+    },
+    "before_after_school_page": {
+      "title": "Before & After School Programs",
+      "description": "Safe, creative environment for children before and after school hours",
+      "schedule": {
+        "before_school": "7:00 AM - 8:30 AM",
+        "after_school": "3:00 PM - 6:00 PM"
+      },
+      "activities": [
+        "Homework assistance",
+        "Art projects and crafts",
+        "Creative play",
+        "Snack time",
+        "Outdoor activities (weather permitting)"
+      ]
+    },
+    "classes_page": {
+      "title": "Art Classes & Programs",
+      "description": "Various art classes designed to help children develop their creative skills",
+      "class_categories": [
+        {
+          "name": "Drawing & Painting",
+          "description": "Step-by-step lessons in various drawing and painting techniques",
+          "age_groups": ["5-8 years", "9-12 years"],
+          "materials": "All materials provided"
+        },
+        {
+          "name": "Arts & Crafts",
+          "description": "Hands-on projects using various craft materials",
+          "age_groups": ["All ages"],
+          "duration": "Various session lengths available"
+        },
+        {
+          "name": "Design Thinking Workshop",
+          "description": "Creative problem-solving through artistic methods",
+          "age_groups": ["8-12 years"],
+          "focus": "Process-oriented learning"
+        }
+      ]
+    },
+    "birthday_party_page": {
+      "title": "Creative Birthday Parties",
+      "description": "Make your child's birthday special with a creative celebration",
+      "party_options": [
+        {
+          "name": "Art Party",
+          "description": "Guided art projects for birthday celebration",
+          "duration": "2 hours",
+          "includes": [
+            "All art materials",
+            "Instructor guidance",
+            "Take-home artwork",
+            "Party setup and cleanup"
+          ]
+        },
+        {
+          "name": "Craft Party",
+          "description": "Fun craft activities for party guests",
+          "duration": "2 hours",
+          "includes": [
+            "Craft supplies",
+            "Project instruction",
+            "Party favors",
+            "Birthday child special project"
+          ]
+        }
+      ]
+    }
+  },
+  "contact_info": {
+    "phone": "Contact information to be obtained",
+    "email": "Contact information to be obtained",
+    "address": "Location in Canada",
+    "hours": {
+      "weekdays": "Contact for schedule",
+      "weekends": "Contact for availability"
+    }
+  },
+  "technical_specifications": {
+    "platform": "Wix-based website",
+    "responsive": true,
+    "mobile_optimized": true,
+    "features": [
+      "Online registration system",
+      "Program scheduling",
+      "Payment processing",
+      "Parent portal access",
+      "Photo galleries",
+      "Blog/news section",
+      "Contact forms"
+    ],
+    "seo_keywords": [
+      "art classes",
+      "preschool programs",
+      "children's art",
+      "creative learning",
+      "after school care",
+      "birthday parties",
+      "art education",
+      "Canada"
+    ]
+  },
+  "components": {
+    "header": {
+      "logo": "Creative Stage logo",
+      "navigation": "Main menu items",
+      "cta_button": "Register Now / Contact Us"
+    },
+    "footer": {
+      "contact_info": "Address, phone, email",
+      "social_media": "Facebook, Instagram links",
+      "quick_links": "Main page links",
+      "copyright": "Copyright information"
+    },
+    "forms": [
+      {
+        "name": "Registration Form",
+        "fields": ["Child Name", "Age", "Parent Contact", "Program Selection", "Special Needs"]
+      },
+      {
+        "name": "Contact Form",
+        "fields": ["Name", "Email", "Phone", "Message", "Preferred Contact Method"]
+      },
+      {
+        "name": "Birthday Party Booking",
+        "fields": ["Date", "Time", "Number of Children", "Age Range", "Party Type", "Special Requests"]
+      }
+    ]
+  },
+  "media_assets": {
+    "images_needed": [
+      "Children creating art",
+      "Art supplies and materials",
+      "Classroom/studio spaces",
+      "Finished artwork examples",
+      "Birthday party celebrations",
+      "Before/after school activities",
+      "Staff/instructor photos"
+    ],
+    "gallery_sections": [
+      "Student artwork",
+      "Program activities",
+      "Facility photos",
+      "Special events"
+    ]
+  },
+  "clone_implementation": {
+    "recommended_stack": {
+      "frontend": "React.js or Next.js",
+      "styling": "Tailwind CSS or styled-components",
+      "backend": "Node.js with Express",
+      "database": "MongoDB or PostgreSQL",
+      "forms": "Formik or React Hook Form",
+      "payment": "Stripe integration",
+      "hosting": "Vercel, Netlify, or similar"
+    },
+    "key_pages": [
+      {
+        "page": "Homepage",
+        "priority": "High",
+        "components": ["Hero", "About", "Programs", "Testimonials", "CTA"]
+      },
+      {
+        "page": "Programs/Classes",
+        "priority": "High",
+        "components": ["Program Grid", "Pricing", "Registration Form"]
+      },
+      {
+        "page": "About",
+        "priority": "Medium",
+        "components": ["Mission", "Philosophy", "Team", "Facility"]
+      },
+      {
+        "page": "Contact",
+        "priority": "High",
+        "components": ["Contact Form", "Location Map", "Hours", "Phone/Email"]
+      },
+      {
+        "page": "Registration",
+        "priority": "High",
+        "components": ["Multi-step Form", "Payment Integration", "Confirmation"]
+      }
+    ],
+    "responsive_breakpoints": {
+      "mobile": "320px - 768px",
+      "tablet": "768px - 1024px",
+      "desktop": "1024px+"
+    },
+    "accessibility_features": {
+      "screen_readers": "ARIA labels and semantic HTML structure",
+      "keyboard_navigation": "Full keyboard accessibility for all interactive elements",
+      "color_contrast": "WCAG AA compliant color combinations",
+      "font_sizes": "Scalable typography with rem units",
+      "focus_indicators": "Clear focus states for all interactive elements",
+      "alt_text": "Descriptive alt text for all images",
+      "language": "Clear, simple language with reading level considerations"
+    },
+    "performance_optimizations": {
+      "images": "Next.js Image component with lazy loading and WebP format",
+      "code_splitting": "Route-based and component-based code splitting",
+      "caching": "Static generation and incremental static regeneration",
+      "fonts": "Google Fonts optimization with font-display: swap",
+      "critical_css": "Above-the-fold CSS inlining",
+      "preloading": "Critical resources and route prefetching"
+    }
+  },
+  "marketing_strategy": {
+    "target_personas": [
+      {
+        "name": "Creative Parent Casey",
+        "age": "30-45",
+        "description": "Parent looking for enriching after-school activities",
+        "pain_points": ["Limited time", "Screen time concerns", "Social development"],
+        "motivations": ["Child development", "Creative expression", "Social skills"]
+      },
+      {
+        "name": "Busy Family Ben",
+        "age": "35-50",
+        "description": "Parent needing reliable childcare with educational value",
+        "pain_points": ["Work schedule conflicts", "Quality care concerns", "Transportation"],
+        "motivations": ["Convenience", "Safety", "Educational value"]
+      },
+      {
+        "name": "Party Planning Paula",
+        "age": "28-42",
+        "description": "Parent planning memorable birthday celebrations",
+        "pain_points": ["Party planning stress", "Cleanup", "Entertainment"],
+        "motivations": ["Unique experience", "Stress-free celebration", "Memory making"]
+      }
+    ],
+    "content_marketing": {
+      "blog_topics": [
+        "Art activities to try at home",
+        "Benefits of creative play for child development",
+        "Seasonal craft ideas for families",
+        "How to encourage creativity in children",
+        "Art supplies guide for parents"
+      ],
+      "social_media_content": [
+        "Daily student artwork showcases",
+        "Behind-the-scenes class activities",
+        "Art tips and tricks for parents",
+        "Teacher spotlights and expertise",
+        "Seasonal project ideas and tutorials"
+      ]
+    }
+  },
+  "future_expansions": {
+    "digital_features": [
+      "Mobile app for class booking and photo sharing",
+      "Virtual reality art experiences",
+      "AI-powered art project suggestions",
+      "Online art classes and tutorials",
+      "Digital portfolio system with progress tracking"
+    ],
+    "program_expansions": [
+      "Teen art programs (13-17 years)",
+      "Adult art classes and workshops",
+      "Art therapy programs",
+      "Corporate team-building art events",
+      "Mobile art party services",
+      "Art supply retail store",
+      "Franchise opportunities"
+    ]
+  }
+}

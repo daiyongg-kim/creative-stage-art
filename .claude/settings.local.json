@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__playwright__playwright_navigate",
+      "Bash(launchctl load:*)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}
