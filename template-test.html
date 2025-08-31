@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>EmailJS Template Test</title>
+</head>
+<body>
+    <h1>EmailJS Template ID Test</h1>
+    
+    <button onclick="testTemplate()">Test Template ID</button>
+    <div id="result"></div>
+    
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        // Initialize EmailJS
+        emailjs.init("ALxlKW9NGkkffGF2z");
+        
+        async function testTemplate() {
+            const result = document.getElementById('result');
+            result.innerHTML = '<p>Testing template ID...</p>';
+            
+            try {
+                const response = await emailjs.send(
+                    'service_hztqnyv',
+                    'template_vc6cs0h', // Your template ID
+                    {
+                        from_name: 'Test User',
+                        from_email: 'test@example.com',
+                        child_name: 'Test Child',
+                        to_email: 'creativestage.art@gmail.com'
+                    },
+                    'ALxlKW9NGkkffGF2z'
+                );
+                
+                result.innerHTML = `<p style="color: green;">✅ SUCCESS: ${JSON.stringify(response)}</p>`;
+            } catch (error) {
+                result.innerHTML = `<p style="color: red;">❌ ERROR: ${error.status} - ${error.text}</p>`;
+                console.error('Template test failed:', error);
+            }
+        }
+    </script>
+</body>
+</html>
