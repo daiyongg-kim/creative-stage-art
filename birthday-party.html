@@ -902,11 +902,11 @@
                                 </div>
                             </div>
 
-                            <!-- Section 3: Package & Theme -->
+                            <!-- Section 3: Package Selection -->
                             <div class="form-section">
                                 <div class="section-header">
-                                    <h4 class="section-title">🎁 Package & Theme</h4>
-                                    <p class="section-subtitle">Choose your celebration style</p>
+                                    <h4 class="section-title">🎁 Package Selection</h4>
+                                    <p class="section-subtitle">Choose your celebration package</p>
                                 </div>
                                 
                                 <div class="form-field">
@@ -949,27 +949,6 @@
                                     </div>
                                 </div>
                                 
-                                <div class="form-field">
-                                    <label for="theme-preference" class="field-label">
-                                        <span class="label-icon">🎨</span>
-                                        Theme Preference
-                                    </label>
-                                    <div class="select-container">
-                                        <select id="theme-preference" name="theme-preference" class="party-select" required>
-                                            <option value="">Select theme</option>
-                                            <option value="princess-prince">👑 Princess & Prince Art Castle</option>
-                                            <option value="superhero">🦸 Superhero Art Academy</option>
-                                            <option value="unicorn">🦄 Unicorn & Rainbow Magic</option>
-                                            <option value="animal-safari">🦁 Animal Safari Adventure</option>
-                                            <option value="space">🚀 Space Exploration Art Mission</option>
-                                            <option value="fairy">🧚 Fairy Garden Art Studio</option>
-                                            <option value="pirate">🏴‍☠️ Pirate Treasure Art Hunt</option>
-                                            <option value="famous-artists">🎭 Famous Artist Workshop</option>
-                                            <option value="custom">✨ Custom Theme (describe below)</option>
-                                        </select>
-                                        <div class="select-arrow">▼</div>
-                                    </div>
-                                </div>
                             </div>
 
                             <!-- Section 4: Contact Information -->
@@ -1182,9 +1161,8 @@
                     party_time: formData.get('party-time'),
                     guest_count: formData.get('guest-count'),
                     
-                    // Package & Theme
+                    // Package
                     package_interest: formData.get('package-interest'),
-                    theme_preference: formData.get('theme-preference'),
                     
                     // Additional Information
                     special_requests: formData.get('special-requests') || 'No special requests',
