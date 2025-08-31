@@ -328,7 +328,79 @@
             100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* WHAT'S INCLUDED SECTION BELOW FORM */
+        /* WHAT'S INCLUDED SECTION IN MAIN CONTENT */
+        .whats-included-main-section {
+            max-width: 900px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 25px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border: 3px solid transparent;
+            background-image: linear-gradient(white, white), linear-gradient(135deg, #ff9a9e, #fecfef, #ff9a9e);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whats-included-main-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #ff9a9e 0%, #fecfef 50%, #ff9a9e 100%);
+            border-radius: 25px 25px 0 0;
+        }
+
+        .whats-included-main-section .registration-info {
+            padding: 40px;
+        }
+
+        .whats-included-main-section h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2rem;
+            color: #ff9a9e;
+            margin: 0 0 25px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .whats-included-main-section h3::before {
+            content: '🎁';
+            font-size: 2.5rem;
+        }
+
+        .whats-included-main-section .included-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .whats-included-main-section .included-list li {
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: #374151;
+            background: linear-gradient(145deg, #f8fafc 0%, #ffffff 100%);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 154, 158, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .whats-included-main-section .included-list li:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 154, 158, 0.2);
+        }
+
+        /* WHAT'S INCLUDED SECTION BELOW FORM (Legacy - keeping for safety) */
         .whats-included-section {
             max-width: 900px;
             margin: 40px auto 0 auto;
@@ -448,6 +520,19 @@
 
             .whats-included-section .registration-info {
                 padding: 30px 25px;
+            }
+
+            .whats-included-main-section {
+                margin: 20px 15px;
+            }
+
+            .whats-included-main-section .registration-info {
+                padding: 30px 25px;
+            }
+
+            .whats-included-main-section .included-list {
+                grid-template-columns: 1fr;
+                gap: 12px;
             }
         }
     </style>
@@ -860,6 +945,22 @@
                     </p>
                 </div>
                 
+                <!-- What's Included Section - Moved Here -->
+                <div class="whats-included-main-section">
+                    <div class="registration-info">
+                        <h3>What's Included:</h3>
+                        <ul class="included-list">
+                            <li>✓ All art materials and supplies</li>
+                            <li>✓ Child-sized apron</li>
+                            <li>✓ Personal art portfolio folder</li>
+                            <li>✓ Weekly progress photos sent to parents</li>
+                            <li>✓ Take-home artwork each session</li>
+                            <li>✓ End-of-month mini art show</li>
+                            <li>✓ Snack and juice box</li>
+                        </ul>
+                    </div>
+                </div>
+                
                 <div class="registration-card">
                     
                     <div class="registration-form">
@@ -930,28 +1031,6 @@
                     </div>
                 </div>
                 
-                <!-- What's Included Section - Below the Form Card -->
-                <div class="whats-included-section">
-                    <div class="registration-info">
-                        <h3>What's Included:</h3>
-                        <ul class="included-list">
-                            <li>✓ All art materials and supplies</li>
-                            <li>✓ Child-sized apron</li>
-                            <li>✓ Personal art portfolio folder</li>
-                            <li>✓ Weekly progress photos sent to parents</li>
-                            <li>✓ Take-home artwork each session</li>
-                            <li>✓ End-of-month mini art show</li>
-                            <li>✓ Snack and juice box</li>
-                        </ul>
-                        
-                        <div class="contact-info">
-                            <h4>Ready to Register?</h4>
-                            <p>📞 Call us at <strong>(604) 789-9523</strong></p>
-                            <p>✉️ Email <strong>creativestage.art@gmail.com</strong></p>
-                            <p>🌐 Visit us at <strong>1381 George St unit1, White Rock, BC V4B 2L1</strong></p>
-                        </div>
-                    </div>
-                </div>
             </div>
         </section>
     </main>
