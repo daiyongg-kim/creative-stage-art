@@ -1105,6 +1105,98 @@ section {
   }
 }
 
+/* ================================
+   Workshop Sections
+   ================================ */
+.workshop-section {
+    margin-top: var(--spacing-xl);
+    padding: var(--spacing-lg);
+    background: var(--color-cream);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--color-secondary);
+}
+
+.workshop-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-lg);
+}
+
+.workshop-category {
+    background: white;
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+}
+
+.workshop-title {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.25rem;
+}
+
+.workshop-list {
+    list-style: none;
+    padding: 0;
+}
+
+.workshop-list li {
+    padding: var(--spacing-xs) 0;
+    color: var(--color-text);
+    font-weight: 600;
+}
+
+.workshop-info {
+    background: var(--color-accent-light);
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    text-align: center;
+}
+
+.workshop-info h4 {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    margin-bottom: var(--spacing-sm);
+}
+
+.workshop-note {
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-top: var(--spacing-sm);
+}
+
+.booking-info {
+    margin-top: var(--spacing-lg);
+    text-align: center;
+}
+
+.deposit-info {
+    background: var(--color-success-light);
+    padding: var(--spacing-lg);
+    border-radius: var(--radius-lg);
+    border: 2px solid var(--color-success);
+}
+
+.deposit-info h3 {
+    color: var(--color-primary);
+    font-family: var(--font-heading);
+    margin-bottom: var(--spacing-sm);
+}
+
+.deposit-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: var(--spacing-sm);
+}
+
+.booking-note {
+    color: var(--color-text);
+    font-style: italic;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
   .nav-menu {
