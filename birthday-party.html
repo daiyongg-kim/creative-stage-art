@@ -812,11 +812,25 @@
 
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        // Initialize EmailJS
-        (function() {
-            emailjs.init("ALxlKW9NGkkffGF2z"); // Your EmailJS public key
-        })();
+        // Initialize EmailJS when library is loaded
+        function initializeEmailJS() {
+            if (typeof emailjs !== 'undefined') {
+                console.log('✅ EmailJS loaded successfully');
+                emailjs.init("ALxlKW9NGkkffGF2z");
+                console.log('✅ EmailJS initialized with public key');
+            } else {
+                console.log('⏳ Waiting for EmailJS to load...');
+                setTimeout(initializeEmailJS, 200); // Try again in 200ms
+            }
+        }
+        
+        // Wait for DOM and then initialize EmailJS
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('📄 DOM loaded, initializing EmailJS...');
+            initializeEmailJS();
+        });
 
         async function submitPartyBooking(event) {
             event.preventDefault();
