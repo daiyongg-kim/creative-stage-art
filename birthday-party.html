@@ -817,25 +817,84 @@
 
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        function submitPartyBooking(event) {
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+        })();
+
+        async function submitPartyBooking(event) {
             event.preventDefault();
-            const button = event.target.querySelector('button');
+            const form = event.target;
+            const button = form.querySelector('button');
+            const formData = new FormData(form);
+            
             button.textContent = 'Sending Party Request...';
             button.disabled = true;
             
-            setTimeout(() => {
+            try {
+                // Collect form data
+                const templateParams = {
+                    child_name: formData.get('child-name'),
+                    child_age: formData.get('child-age'),
+                    parent_name: formData.get('parent-name'),
+                    parent_email: formData.get('parent-email'),
+                    parent_phone: formData.get('parent-phone'),
+                    party_date: formData.get('party-date'),
+                    party_time: formData.get('party-time'),
+                    guest_count: formData.get('guest-count'),
+                    package_interest: formData.get('package-interest'),
+                    main_workshop: formData.get('main-workshop'),
+                    mini_workshop: formData.get('mini-workshop'),
+                    dietary_restrictions: formData.get('dietary-restrictions'),
+                    special_requests: formData.get('special-requests'),
+                    heard_about: formData.get('heard-about'),
+                    to_email: 'creativestage.art@gmail.com'
+                };
+
+                // Send email using EmailJS
+                const response = await emailjs.send(
+                    'YOUR_SERVICE_ID',    // Replace with your EmailJS service ID
+                    'YOUR_TEMPLATE_ID',   // Replace with your EmailJS template ID
+                    templateParams
+                );
+
+                console.log('Email sent successfully:', response);
+                
                 button.textContent = '✓ Party Request Sent!';
                 button.style.background = 'var(--color-success)';
                 showNotification('🎉 Thank you for your party request! We\'ll contact you within 24 hours to plan the perfect celebration for your little artist!');
-                event.target.reset();
+                form.reset();
                 
                 setTimeout(() => {
                     button.textContent = 'Request Party Booking';
                     button.disabled = false;
                     button.style.background = '';
                 }, 3000);
-            }, 1500);
+                
+            } catch (error) {
+                console.error('Email sending failed:', error);
+                
+                button.textContent = '❌ Failed to Send';
+                button.style.background = 'var(--color-primary)';
+                
+                let errorMessage = 'Failed to send party request. Please contact us directly at creativestage.art@gmail.com or call (604) 789-9523.';
+                
+                if (error.status === 400) {
+                    errorMessage = 'Invalid form data. Please check all fields and try again.';
+                } else if (error.status === 429) {
+                    errorMessage = 'Too many requests. Please wait a moment and try again.';
+                }
+                
+                showNotification('❌ ' + errorMessage);
+                
+                setTimeout(() => {
+                    button.textContent = 'Request Party Booking';
+                    button.disabled = false;
+                    button.style.background = '';
+                }, 3000);
+            }
         }
         
         // Add party decoration animations
