@@ -821,7 +821,7 @@
     <script>
         // Initialize EmailJS
         (function() {
-            emailjs.init("YOUR_PUBLIC_KEY"); // Replace with your EmailJS public key
+            emailjs.init("ALxlKW9NGkkffGF2z"); // EmailJS public key
         })();
 
         async function submitPartyBooking(event) {
@@ -855,8 +855,8 @@
 
                 // Send email using EmailJS
                 const response = await emailjs.send(
-                    'YOUR_SERVICE_ID',    // Replace with your EmailJS service ID
-                    'YOUR_TEMPLATE_ID',   // Replace with your EmailJS template ID
+                    'service_hztqnyv',    // EmailJS service ID
+                    'template_birthday_party',   // EmailJS template ID (you need to create this)
                     templateParams
                 );
 
