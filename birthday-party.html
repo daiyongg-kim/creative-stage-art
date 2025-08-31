@@ -634,7 +634,7 @@
                     </div>
                     
                     <div class="booking-form">
-                        <form class="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+                        <form class="contact-form" onsubmit="submitPartyBooking(event)">
                             <h3>Party Booking Request Form</h3>
                             
                             <div class="form-group">
@@ -813,6 +813,75 @@
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
     <script>
+        function submitPartyBooking(event) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            
+            // Collect form data for email
+            const emailData = {
+                childName: formData.get('birthday-child'),
+                childAge: formData.get('child-age'),
+                parentName: formData.get('parent-name'),
+                parentEmail: formData.get('parent-email'),
+                parentPhone: formData.get('parent-phone'),
+                partyDate: formData.get('party-date'),
+                partyTime: formData.get('party-time'),
+                guestCount: formData.get('guest-count'),
+                packageInterest: formData.get('package-interest'),
+                themePreference: formData.get('theme-preference'),
+                specialRequests: formData.get('special-requests'),
+                howHeard: formData.get('how-heard')
+            };
+            
+            // Create email body
+            const emailBody = `
+Birthday Party Booking Request
+
+Child Information:
+- Name: ${emailData.childName}
+- Age: ${emailData.childAge}
+
+Parent Information:
+- Name: ${emailData.parentName}
+- Email: ${emailData.parentEmail}
+- Phone: ${emailData.parentPhone}
+
+Party Details:
+- Date: ${emailData.partyDate}
+- Time: ${emailData.partyTime}
+- Number of Guests: ${emailData.guestCount}
+- Package: ${emailData.packageInterest}
+- Theme Preference: ${emailData.themePreference}
+
+Special Requests:
+${emailData.specialRequests || 'None'}
+
+How they heard about us: ${emailData.howHeard}
+
+---
+Sent from Creative Stage website
+            `.trim();
+            
+            // Create mailto link
+            const subject = `Birthday Party Booking - ${emailData.childName}`;
+            const mailtoLink = `mailto:creativestage.art@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Open default email client
+            window.location.href = mailtoLink;
+            
+            // Show success message
+            const button = form.querySelector('button');
+            button.textContent = '✓ Email Client Opened!';
+            button.style.background = 'var(--color-success)';
+            showNotification('📧 Your email client opened with the party request. Please send the email to complete your booking!');
+            
+            setTimeout(() => {
+                button.textContent = 'Send Party Request';
+                button.style.background = '';
+            }, 3000);
+        }
+    </script>
         
         // Add party decoration animations
         document.addEventListener('DOMContentLoaded', function() {
