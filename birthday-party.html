@@ -813,73 +813,96 @@
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
     <script>
-        function submitPartyBooking(event) {
+        // Initialize EmailJS
+        (function() {
+            emailjs.init("ALxlKW9NGkkffGF2z"); // Your EmailJS public key
+        })();
+
+        async function submitPartyBooking(event) {
             event.preventDefault();
             const form = event.target;
+            const button = form.querySelector('button[type="submit"]');
             const formData = new FormData(form);
             
-            // Collect form data for email
-            const emailData = {
-                childName: formData.get('birthday-child'),
-                childAge: formData.get('child-age'),
-                parentName: formData.get('parent-name'),
-                parentEmail: formData.get('parent-email'),
-                parentPhone: formData.get('parent-phone'),
-                partyDate: formData.get('party-date'),
-                partyTime: formData.get('party-time'),
-                guestCount: formData.get('guest-count'),
-                packageInterest: formData.get('package-interest'),
-                themePreference: formData.get('theme-preference'),
-                specialRequests: formData.get('special-requests'),
-                howHeard: formData.get('how-heard')
-            };
+            // Update button state
+            const originalText = button.textContent;
+            button.textContent = 'Sending Party Request...';
+            button.disabled = true;
             
-            // Create email body
-            const emailBody = `
-Birthday Party Booking Request
-
-Child Information:
-- Name: ${emailData.childName}
-- Age: ${emailData.childAge}
-
-Parent Information:
-- Name: ${emailData.parentName}
-- Email: ${emailData.parentEmail}
-- Phone: ${emailData.parentPhone}
-
-Party Details:
-- Date: ${emailData.partyDate}
-- Time: ${emailData.partyTime}
-- Number of Guests: ${emailData.guestCount}
-- Package: ${emailData.packageInterest}
-- Theme Preference: ${emailData.themePreference}
-
-Special Requests:
-${emailData.specialRequests || 'None'}
-
-How they heard about us: ${emailData.howHeard}
-
----
-Sent from Creative Stage website
-            `.trim();
-            
-            // Create mailto link
-            const subject = `Birthday Party Booking - ${emailData.childName}`;
-            const mailtoLink = `mailto:creativestage.art@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(emailBody)}`;
-            
-            // Open default email client
-            window.location.href = mailtoLink;
-            
-            // Show success message
-            const button = form.querySelector('button');
-            button.textContent = '✓ Email Client Opened!';
-            button.style.background = 'var(--color-success)';
-            showNotification('📧 Your email client opened with the party request. Please send the email to complete your booking!');
-            
-            setTimeout(() => {
-                button.textContent = 'Send Party Request';
-                button.style.background = '';
-            }, 3000);
+            try {
+                // EmailJS configuration
+                const serviceId = 'service_hztqnyv'; // Your service ID
+                const templateId = 'template_birthday_party'; // Create this template in EmailJS
+                const publicKey = 'ALxlKW9NGkkffGF2z'; // Your public key
+                
+                // Template parameters matching the portfolio format
+                const templateParams = {
+                    from_name: formData.get('parent-name'),
+                    from_email: formData.get('parent-email'),
+                    child_name: formData.get('birthday-child'),
+                    child_age: formData.get('child-age'),
+                    parent_phone: formData.get('parent-phone'),
+                    party_date: formData.get('party-date'),
+                    party_time: formData.get('party-time'),
+                    guest_count: formData.get('guest-count'),
+                    package_interest: formData.get('package-interest'),
+                    theme_preference: formData.get('theme-preference'),
+                    special_requests: formData.get('special-requests') || 'None',
+                    how_heard: formData.get('how-heard'),
+                    to_email: 'creativestage.art@gmail.com'
+                };
+                
+                console.log('Sending email with params:', templateParams);
+                
+                // Send email using EmailJS
+                const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+                console.log('EmailJS Response:', response);
+                
+                // Success state
+                button.textContent = '✓ Party Request Sent!';
+                button.style.background = 'var(--color-success)';
+                showNotification('🎉 Thank you for your party request! We\'ll contact you within 24 hours to plan the perfect celebration!');
+                
+                // Reset form
+                form.reset();
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.style.background = '';
+                }, 3000);
+                
+            } catch (error) {
+                console.error('Email sending failed:', error);
+                console.error('Error details:', error.text, error.status);
+                
+                // Error state
+                button.textContent = '❌ Failed to Send';
+                button.style.background = 'var(--color-primary)';
+                
+                let errorMessage = 'Failed to send party request. Please contact us directly at creativestage.art@gmail.com or call (604) 789-9523.';
+                
+                // Specific error handling based on portfolio code
+                if (error.message && error.message.includes('configuration')) {
+                    errorMessage = 'Email service configuration error. Please contact us directly at creativestage.art@gmail.com';
+                } else if (error.status === 400) {
+                    errorMessage = 'Invalid form data. Please check all fields and try again.';
+                } else if (error.status === 401) {
+                    errorMessage = 'Email service authentication failed. Please contact us directly at creativestage.art@gmail.com';
+                } else if (error.status === 403) {
+                    errorMessage = 'Email service access denied. Please contact us directly at creativestage.art@gmail.com';
+                } else if (error.status === 429) {
+                    errorMessage = 'Too many requests. Please wait a moment and try again.';
+                }
+                
+                showNotification('❌ ' + errorMessage);
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.disabled = false;
+                    button.style.background = '';
+                }, 3000);
+            }
         }
     </script>
         
