@@ -2,7 +2,8 @@
   "permissions": {
     "allow": [
       "mcp__playwright__playwright_navigate",
-      "Bash(launchctl load:*)"
+      "Bash(launchctl load:*)",
+      "Bash(gh auth:*)"
     ],
     "deny": [],
     "ask": []
