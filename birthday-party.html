@@ -854,8 +854,19 @@
             try {
                 // EmailJS configuration
                 const serviceId = 'service_hztqnyv'; // Your service ID
-                const templateId = 'template_birthday_party'; // Create this template in EmailJS
                 const publicKey = 'ALxlKW9NGkkffGF2z'; // Your public key
+                
+                // Try multiple template IDs in order of likelihood
+                const possibleTemplateIds = [
+                    'template_party',           // Custom party template
+                    'template_contact',         // Generic contact template
+                    'template_default',         // Default template
+                    'template_form',           // Form template
+                    'template_1'               // Numbered template
+                ];
+                
+                let templateId = possibleTemplateIds[0];
+                console.log('🎯 Using template ID:', templateId);
                 
                 // Template parameters matching the portfolio format
                 const templateParams = {
@@ -882,10 +893,38 @@
                     throw new Error('EmailJS library not loaded');
                 }
                 
-                // Send email using EmailJS
-                console.log('⏳ Attempting to send email...');
-                const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
-                console.log('✅ EmailJS Response:', response);
+                // Try sending with different template IDs if first one fails
+                let response;
+                let lastError;
+                
+                for (let i = 0; i < possibleTemplateIds.length; i++) {
+                    templateId = possibleTemplateIds[i];
+                    console.log(`📤 Attempting with template ID: ${templateId} (${i + 1}/${possibleTemplateIds.length})`);
+                    
+                    try {
+                        response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+                        console.log('✅ EmailJS Response:', response);
+                        console.log(`🎉 Success with template ID: ${templateId}`);
+                        break; // Success, exit loop
+                    } catch (templateError) {
+                        console.log(`❌ Failed with template ID: ${templateId}`, templateError);
+                        lastError = templateError;
+                        
+                        // If it's not a template error, don't try other templates
+                        if (templateError.status !== 400 || !templateError.text?.includes('template ID not found')) {
+                            throw templateError;
+                        }
+                        
+                        // If this was the last template to try, throw the error
+                        if (i === possibleTemplateIds.length - 1) {
+                            throw templateError;
+                        }
+                    }
+                }
+                
+                if (!response) {
+                    throw lastError || new Error('All template attempts failed');
+                }
                 
                 // Success state
                 button.textContent = '✓ Party Request Sent!';
@@ -950,7 +989,6 @@
                 }, 3000);
             }
         }
-    </script>
         
         // Add party decoration animations
         document.addEventListener('DOMContentLoaded', function() {
