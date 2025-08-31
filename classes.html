@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎨 Art Classes & Programs - Creative Stage</title>
     <meta name="description" content="Art classes for all skill levels. Drawing, painting, pottery, digital art, and mixed media classes for children and teens ages 5-17.">
-    <!-- Cache refresh: 2025-08-31-v2 -->
+    <!-- Cache refresh: 2025-08-31-v7 -->
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -181,16 +181,17 @@
         /* FORM FIELDS */
         .form-group {
             margin-bottom: 25px;
+            text-align: center !important;
         }
 
         .form-group label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
+            display: block !important;
+            text-align: center !important;
             font-weight: 700;
             color: #374151;
             margin-bottom: 12px;
             font-size: 1.1rem;
+            justify-content: center !important;
         }
 
         /* INPUT STYLING */
@@ -241,8 +242,9 @@
 
         /* SUBMIT BUTTON */
         .form-group button {
-            display: block;
-            margin: 0 auto;
+            display: block !important;
+            margin: 0 auto !important;
+            text-align: center !important;
             align-items: center;
             justify-content: center;
             gap: 15px;
@@ -366,6 +368,114 @@
             .classes-title-icon {
                 font-size: 3rem;
             }
+        }
+        
+        /* WHAT'S INCLUDED SECTION STYLING - GREEN BOX STYLE */
+        .whats-included-main-section {
+            background: linear-gradient(135deg, #a8e6cf 0%, #88d8a3 50%, #7bcf9f 100%);
+            border-radius: 25px;
+            margin: 0 auto 30px auto;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(136, 216, 163, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whats-included-main-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #88d8a3 0%, #66c48f 50%, #44b075 100%);
+            border-radius: 25px 25px 0 0;
+        }
+
+        .whats-included-main-section .registration-info {
+            padding: 40px;
+        }
+
+        .whats-included-main-section h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2rem;
+            color: white;
+            margin: 0 0 25px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .whats-included-main-section h3::before {
+            content: '🎨';
+            font-size: 2.5rem;
+        }
+
+        .whats-included-main-section .included-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .whats-included-main-section .included-list li {
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .whats-included-main-section .included-list li:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .whats-included-main-section .pricing-options h4 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8rem;
+            color: white;
+            margin: 0 0 20px 0;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .whats-included-main-section .pricing-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .whats-included-main-section .pricing-list li {
+            padding: 12px 18px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d5016;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .whats-included-main-section .pricing-list li:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
     </style>
     
@@ -568,6 +678,38 @@
                             <li>Art Criticism</li>
                         </ul>
                         <div class="category-ages">Ages 9-17 • 60 min • $65-75</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- What's Included Section - Moved Up -->
+        <section class="whats-included-section">
+            <div class="container">
+                <div class="whats-included-main-section">
+                    <div class="registration-info">
+                        <h3>What's Included in Every Class:</h3>
+                        <ul class="included-list">
+                            <li>✓ All art materials and supplies</li>
+                            <li>✓ Professional instruction and guidance</li>
+                            <li>✓ Individual feedback and support</li>
+                            <li>✓ Take-home artwork from every class</li>
+                            <li>✓ Progress tracking and portfolio development</li>
+                            <li>✓ Access to our online parent portal</li>
+                            <li>✓ End-of-session art show opportunity</li>
+                            <li>✓ Make-up class options for absences</li>
+                        </ul>
+                        
+                        <div class="pricing-options">
+                            <h4>Flexible Payment Options:</h4>
+                            <ul class="pricing-list">
+                                <li><strong>Single Classes:</strong> $65-105 per class</li>
+                                <li><strong>4-Class Package:</strong> $240-400 (Save 10%)</li>
+                                <li><strong>8-Class Package:</strong> $460-800 (Save 15%)</li>
+                                <li><strong>Monthly Unlimited:</strong> $280-450/month</li>
+                                <li><strong>Sibling Discount:</strong> 15% off additional children</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -938,37 +1080,6 @@
                 </div>
                 
                 <div class="registration-card">
-                    <div class="registration-info">
-                        <h3>What's Included in Every Class:</h3>
-                        <ul class="included-list">
-                            <li>✓ All art materials and supplies</li>
-                            <li>✓ Professional instruction and guidance</li>
-                            <li>✓ Individual feedback and support</li>
-                            <li>✓ Take-home artwork from every class</li>
-                            <li>✓ Progress tracking and portfolio development</li>
-                            <li>✓ Access to our online parent portal</li>
-                            <li>✓ End-of-session art show opportunity</li>
-                            <li>✓ Make-up class options for absences</li>
-                        </ul>
-                        
-                        <div class="pricing-packages">
-                            <h4>Flexible Payment Options:</h4>
-                            <ul class="package-list">
-                                <li><strong>Single Classes:</strong> $65-105 per class</li>
-                                <li><strong>4-Class Package:</strong> $240-400 (Save 10%)</li>
-                                <li><strong>8-Class Package:</strong> $460-800 (Save 15%)</li>
-                                <li><strong>Monthly Unlimited:</strong> $280-450/month</li>
-                                <li><strong>Sibling Discount:</strong> 15% off additional children</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="contact-info">
-                            <h4>Questions? Contact Us!</h4>
-                            <p>📞 Call us at <strong>(604) 789-9523</strong></p>
-                            <p>✉️ Email <strong>creativestage.art@gmail.com</strong></p>
-                            <p>🌐 Visit us at <strong>1381 George St unit1, White Rock, BC V4B 2L1</strong></p>
-                        </div>
-                    </div>
                     
                     <div class="registration-form">
                         <!-- Magical Classes Form Header -->
@@ -1095,7 +1206,7 @@
                             </div>
                             
                             <button type="submit" class="btn btn-primary btn-large">Submit Class Registration</button>
-                            <p class="form-note">We'll contact you within 24 hours to confirm class availability and schedule your first session.</p>
+                            <p class="form-note" style="text-align: center !important;">We'll contact you within 24 hours to confirm class availability and schedule your first session.</p>
                         </form>
                     </div>
                 </div>

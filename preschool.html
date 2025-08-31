@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🐣 Preschool Programs - Creative Stage</title>
     <meta name="description" content="Preschool art programs for ages 3-5. Gentle introduction to creativity with sensory play, finger painting, and story-time art activities.">
+    <!-- Cache refresh: 2025-08-31-v2 -->
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -336,17 +337,13 @@
             100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
-        /* WHAT'S INCLUDED SECTION IN MAIN CONTENT */
+        /* WHAT'S INCLUDED SECTION IN MAIN CONTENT - GREEN BOX STYLE */
         .whats-included-main-section {
             max-width: 900px;
             margin: 30px auto;
-            background: white;
+            background: linear-gradient(135deg, #a8e6cf 0%, #88d8a3 50%, #7bcf9f 100%);
             border-radius: 25px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            border: 3px solid transparent;
-            background-image: linear-gradient(white, white), linear-gradient(135deg, #ff9a9e, #fecfef, #ff9a9e);
-            background-origin: border-box;
-            background-clip: content-box, border-box;
+            box-shadow: 0 10px 30px rgba(136, 216, 163, 0.3);
             position: relative;
             overflow: hidden;
         }
@@ -358,7 +355,7 @@
             left: 0;
             right: 0;
             height: 6px;
-            background: linear-gradient(90deg, #ff9a9e 0%, #fecfef 50%, #ff9a9e 100%);
+            background: linear-gradient(90deg, #88d8a3 0%, #66c48f 50%, #44b075 100%);
             border-radius: 25px 25px 0 0;
         }
 
@@ -369,13 +366,14 @@
         .whats-included-main-section h3 {
             font-family: 'Fredoka One', cursive;
             font-size: 2rem;
-            color: #ff9a9e;
+            color: white;
             margin: 0 0 25px 0;
             text-align: center;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 12px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
         }
 
         .whats-included-main-section h3::before {
@@ -396,16 +394,55 @@
             padding: 15px;
             font-size: 1.1rem;
             font-weight: 500;
-            color: #374151;
-            background: linear-gradient(145deg, #f8fafc 0%, #ffffff 100%);
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
             border-radius: 15px;
-            border: 2px solid rgba(255, 154, 158, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
             transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
         }
 
         .whats-included-main-section .included-list li:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 154, 158, 0.2);
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .whats-included-main-section .pricing-options h4 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8rem;
+            color: white;
+            margin: 0 0 20px 0;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .whats-included-main-section .pricing-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .whats-included-main-section .pricing-list li {
+            padding: 12px 18px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d5016;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .whats-included-main-section .pricing-list li:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
         }
 
         /* WHAT'S INCLUDED SECTION BELOW FORM (Legacy - keeping for safety) */
@@ -804,6 +841,38 @@
             </div>
         </section>
 
+        <!-- What's Included Section - Moved Up -->
+        <section class="whats-included-section">
+            <div class="container">
+                <div class="whats-included-main-section">
+                    <div class="registration-info">
+                        <h3>What's Included in Every Class:</h3>
+                        <ul class="included-list">
+                            <li>✓ All art materials and supplies</li>
+                            <li>✓ Child-sized apron</li>
+                            <li>✓ Personal art portfolio folder</li>
+                            <li>✓ Weekly progress photos sent to parents</li>
+                            <li>✓ Take-home artwork each session</li>
+                            <li>✓ Professional early childhood instruction</li>
+                            <li>✓ End-of-month mini art show</li>
+                            <li>✓ Snack and juice box</li>
+                        </ul>
+                        
+                        <div class="pricing-options">
+                            <h4>Flexible Payment Options:</h4>
+                            <ul class="pricing-list">
+                                <li><strong>Single Classes:</strong> $55 per class</li>
+                                <li><strong>4-Class Package:</strong> $200 (Save 10%)</li>
+                                <li><strong>8-Class Package:</strong> $380 (Save 15%)</li>
+                                <li><strong>Monthly Unlimited:</strong> $180/month</li>
+                                <li><strong>Sibling Discount:</strong> 15% off additional children</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Schedule & Pricing -->
         <section id="schedule" class="schedule-pricing">
             <div class="container">
@@ -950,22 +1019,6 @@
                     <p class="section-description">
                         Join our Tiny Artists program today! Limited spots available to ensure personalized attention.
                     </p>
-                </div>
-                
-                <!-- What's Included Section - Moved Here -->
-                <div class="whats-included-main-section">
-                    <div class="registration-info">
-                        <h3>What's Included:</h3>
-                        <ul class="included-list">
-                            <li>✓ All art materials and supplies</li>
-                            <li>✓ Child-sized apron</li>
-                            <li>✓ Personal art portfolio folder</li>
-                            <li>✓ Weekly progress photos sent to parents</li>
-                            <li>✓ Take-home artwork each session</li>
-                            <li>✓ End-of-month mini art show</li>
-                            <li>✓ Snack and juice box</li>
-                        </ul>
-                    </div>
                 </div>
                 
                 <div class="registration-card">
