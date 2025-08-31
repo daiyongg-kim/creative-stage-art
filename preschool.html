@@ -542,25 +542,126 @@
 
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        function submitRegistration(event) {
+        // Initialize EmailJS when library loads
+        function initializeEmailJS() {
+            if (typeof emailjs !== 'undefined') {
+                console.log('✅ EmailJS loaded successfully for preschool');
+                emailjs.init("ALxlKW9NGkkffGF2z");
+                console.log('✅ EmailJS initialized with public key');
+            } else {
+                console.log('⏳ Waiting for EmailJS to load...');
+                setTimeout(initializeEmailJS, 200);
+            }
+        }
+        
+        // Start initialization when DOM is ready
+        document.addEventListener('DOMContentLoaded', initializeEmailJS);
+
+        async function submitRegistration(event) {
             event.preventDefault();
-            const button = event.target.querySelector('button');
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const button = form.querySelector('button');
+            const originalText = button.textContent;
+            
             button.textContent = 'Sending...';
             button.disabled = true;
             
-            setTimeout(() => {
+            try {
+                // EmailJS configuration
+                const serviceId = 'service_hztqnyv';
+                const publicKey = 'ALxlKW9NGkkffGF2z';
+                const templateId = 'template_vc6cs0h';
+                
+                console.log('📧 Sending preschool registration email');
+                
+                // Enhanced email template parameters
+                const today = new Date().toLocaleDateString();
+                const requestTime = new Date().toLocaleString();
+                
+                const templateParams = {
+                    // Header Information
+                    subject: `🐣 PRESCHOOL REGISTRATION INTEREST - ${formData.get('child-name')}`,
+                    request_date: today,
+                    request_time: requestTime,
+                    
+                    // Parent Contact Information
+                    from_name: formData.get('parent-name'),
+                    from_email: formData.get('parent-email'),
+                    parent_phone: formData.get('parent-phone'),
+                    
+                    // Child Information
+                    child_name: formData.get('child-name'),
+                    child_age: formData.get('child-age'),
+                    
+                    // Program Details
+                    package_interest: 'Preschool Program (Ages 3-5)',
+                    guest_count: '1 child',
+                    party_date: formData.get('start-date') ? new Date(formData.get('start-date')).toLocaleDateString() : 'To be discussed',
+                    party_time: formData.get('preferred-days') || 'To be discussed',
+                    
+                    // Additional Information
+                    special_requests: formData.get('special-needs') || 'No special needs mentioned',
+                    how_heard: 'Preschool program inquiry',
+                    
+                    // Business Information
+                    to_email: 'creativestage.art@gmail.com',
+                    business_name: 'Creative Stage',
+                    business_location: 'White Rock, BC',
+                    business_website: 'creativestage.art',
+                    
+                    // Formatted Summary for Quick Reference
+                    quick_summary: `${formData.get('child-name')} • Age ${formData.get('child-age')} • Preschool Program Interest • Start: ${formData.get('start-date') || 'TBD'}`
+                };
+                
+                console.log('📧 Sending email with params:', templateParams);
+                
+                // Validate EmailJS is loaded
+                if (typeof emailjs === 'undefined') {
+                    throw new Error('EmailJS library not loaded');
+                }
+                
+                // Send email using EmailJS
+                const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+                console.log('✅ EmailJS Response:', response);
+                
+                // Success state
                 button.textContent = '✓ Request Sent!';
                 button.style.background = 'var(--color-success)';
                 showNotification('🎨 Thank you! We\'ll contact you within 24 hours to schedule a tour and answer your questions.');
-                event.target.reset();
+                form.reset();
                 
                 setTimeout(() => {
-                    button.textContent = 'Request Information & Tour';
+                    button.textContent = originalText;
                     button.disabled = false;
                     button.style.background = '';
                 }, 3000);
-            }, 1500);
+                
+            } catch (error) {
+                console.error('❌ Email sending failed:', error);
+                console.error('🔍 Error details:', {
+                    message: error.message,
+                    text: error.text,
+                    status: error.status
+                });
+                
+                // Error handling
+                let errorMessage = 'Failed to send registration request. Please contact us directly at creativestage.art@gmail.com or call (604) 789-9523.';
+                
+                if (error.message && error.message.includes('EmailJS library not loaded')) {
+                    errorMessage = 'Email service not available. Please refresh the page and try again.';
+                }
+                
+                alert(`Registration Error:\n\n${errorMessage}`);
+                
+                // Reset button
+                button.textContent = originalText;
+                button.disabled = false;
+                button.style.background = '';
+            }
         }
     </script>
 </body>
