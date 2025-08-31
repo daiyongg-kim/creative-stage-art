@@ -1327,3 +1327,311 @@ section {
     margin-top: 0;
   }
 }
+
+/* Enhanced Form Styling */
+.form-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+    padding: var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-blue) 100%);
+    border-radius: 20px 20px 0 0;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.form-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="p" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="20" fill="url(%23p)"/></svg>');
+    opacity: 0.3;
+}
+
+.form-header > * {
+    position: relative;
+    z-index: 1;
+}
+
+.form-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-sm);
+    animation: bounce 2s infinite;
+    display: block;
+}
+
+.form-header h3 {
+    font-size: 2.2rem;
+    margin-bottom: var(--spacing-sm);
+    font-family: var(--font-heading);
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-subtitle {
+    font-size: 1.1rem;
+    opacity: 0.95;
+    max-width: 500px;
+    margin: 0 auto;
+    line-height: 1.4;
+}
+
+.elegant-form {
+    background: white;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: none;
+    padding: var(--spacing-xl);
+}
+
+.elegant-form .form-group {
+    margin-bottom: var(--spacing-xl);
+    position: relative;
+}
+
+.elegant-form label {
+    display: block;
+    font-weight: 600;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-sm);
+    font-size: 1.05rem;
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+}
+
+.elegant-form label::before {
+    content: '✨';
+    font-size: 1rem;
+    opacity: 0.7;
+}
+
+.elegant-form input,
+.elegant-form select,
+.elegant-form textarea {
+    width: 100%;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border: 2px solid #e1e5e9;
+    border-radius: 15px;
+    font-size: 1.05rem;
+    transition: all 0.3s ease;
+    background: #fafbfc;
+    font-family: inherit;
+}
+
+.elegant-form input:focus,
+.elegant-form select:focus,
+.elegant-form textarea:focus {
+    border-color: var(--color-primary);
+    background: white;
+    box-shadow: 0 0 0 4px rgba(255, 107, 107, 0.1);
+    outline: none;
+    transform: translateY(-2px);
+}
+
+.elegant-form textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+.elegant-form button {
+    width: 100%;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-accent-blue) 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.25rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    margin-top: var(--spacing-xl);
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    position: relative;
+    overflow: hidden;
+}
+
+.elegant-form button:hover:not(:disabled) {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.3);
+}
+
+.elegant-form button:active {
+    transform: translateY(-1px);
+}
+
+.elegant-form button:disabled {
+    opacity: 0.7;
+    transform: none;
+    cursor: not-allowed;
+}
+
+/* Success Banner */
+.success-banner {
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    color: white;
+    padding: var(--spacing-xl);
+    border-radius: 20px;
+    margin-bottom: var(--spacing-xl);
+    animation: slideInDown 0.6s ease-out;
+    box-shadow: 0 8px 32px rgba(16, 185, 129, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.success-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 20"><defs><pattern id="stars" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="10" r="0.5" fill="rgba(255,255,255,0.2)"/></pattern></defs><rect width="100" height="20" fill="url(%23stars)"/></svg>');
+}
+
+.success-content {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-lg);
+    position: relative;
+    z-index: 1;
+}
+
+.success-icon {
+    font-size: 3rem;
+    animation: sparkle 2s infinite;
+    flex-shrink: 0;
+}
+
+.success-text h4 {
+    margin: 0 0 var(--spacing-sm) 0;
+    font-size: 1.4rem;
+    font-family: var(--font-heading);
+}
+
+.success-text p {
+    margin: 0;
+    opacity: 0.95;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+/* Enhanced Radio Group */
+.radio-group {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.radio-label {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: var(--color-cream);
+    border: 2px solid var(--color-accent-blue);
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.radio-label:hover {
+    background: var(--color-accent-blue);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(78, 205, 196, 0.2);
+}
+
+.radio-label input[type="radio"] {
+    margin: 0;
+    width: auto;
+    transform: scale(1.2);
+}
+
+/* Form Field Icons */
+.form-group[data-icon]::before {
+    content: attr(data-icon);
+    position: absolute;
+    right: var(--spacing-lg);
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Form Animations */
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-12px);
+    }
+    60% {
+        transform: translateY(-6px);
+    }
+}
+
+@keyframes sparkle {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        opacity: 1;
+    }
+    25% {
+        transform: scale(1.2) rotate(90deg);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(0.9) rotate(180deg);
+        opacity: 1;
+    }
+    75% {
+        transform: scale(1.1) rotate(270deg);
+        opacity: 0.9;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive Enhancements */
+@media (max-width: 768px) {
+    .form-header {
+        padding: var(--spacing-lg);
+    }
+    
+    .form-header h3 {
+        font-size: 1.8rem;
+    }
+    
+    .elegant-form {
+        padding: var(--spacing-lg);
+    }
+    
+    .success-content {
+        flex-direction: column;
+        text-align: center;
+        gap: var(--spacing-md);
+    }
+    
+    .radio-group {
+        justify-content: center;
+    }
+}

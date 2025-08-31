@@ -20,34 +20,59 @@ Visit: https://dashboard.emailjs.com/admin/templates
 - Click "Create New Template"
 - Template ID: `template_party` (or any from the list above)
 
-### Step 3: Template Content
-**Subject:** `🎉 Party Booking Request from {{from_name}}`
+### Step 3: Enhanced Template Content
+**Subject:** `{{subject}}`  
+*(Dynamic: "🎉 PARTY BOOKING REQUEST - [Child Name] (Age [X])")*
 
 **Body:**
 ```
-New Birthday Party Booking Request!
+🎨 ═══════════════════════════════════════════
+   CREATIVE STAGE PARTY BOOKING REQUEST
+🎨 ═══════════════════════════════════════════
 
-Parent Information:
-- Name: {{from_name}}
-- Email: {{from_email}}
-- Phone: {{parent_phone}}
+📅 QUICK SUMMARY: {{quick_summary}}
+📬 Submitted: {{request_date}} at {{request_time}}
 
-Party Details:
-- Child's Name: {{child_name}}
-- Child's Age: {{child_age}}
-- Preferred Date: {{party_date}}
-- Preferred Time: {{party_time}}
-- Number of Guests: {{guest_count}}
-- Package Interest: {{package_interest}}
-- Theme Preference: {{theme_preference}}
-- Special Requests: {{special_requests}}
-- How They Heard About Us: {{how_heard}}
+👨‍👩‍👧‍👦 PARENT/GUARDIAN INFORMATION:
+──────────────────────────────────
+Name: {{from_name}}
+Email: {{from_email}}
+Phone: {{parent_phone}}
 
-Please respond to: {{from_email}}
+🎂 BIRTHDAY CELEBRATION DETAILS:
+──────────────────────────────────
+Birthday Child: {{child_name}}
+Age: {{child_age}} years old
+Party Date: {{party_date}}
+Start Time: {{party_time}}
+Number of Guests: {{guest_count}}
 
----
-Sent via Creative Stage Website
-Contact: {{to_email}}
+🎁 PACKAGE & PREFERENCES:
+──────────────────────────────────
+Package Interest: {{package_interest}}
+Theme Preference: {{theme_preference}}
+
+💬 ADDITIONAL INFORMATION:
+──────────────────────────────────
+Special Requests: {{special_requests}}
+How They Heard About Us: {{how_heard}}
+
+📞 NEXT STEPS:
+──────────────────────────────────
+✅ Respond within 24 hours
+✅ Confirm availability for {{party_date}}
+✅ Discuss package details and customizations
+✅ Send booking confirmation and deposit info
+
+🏢 BUSINESS CONTACT:
+──────────────────────────────────
+{{business_name}}
+📍 {{business_location}}
+🌐 {{business_website}}
+📧 {{to_email}}
+
+═══════════════════════════════════════════
+🎨 Making art magical since 2024 • Creative Stage
 ```
 
 ### Step 4: Test Settings
