@@ -820,9 +820,17 @@
 
         async function submitPartyBooking(event) {
             event.preventDefault();
+            console.log('🚀 Form submission started');
+            
             const form = event.target;
             const button = form.querySelector('button[type="submit"]');
             const formData = new FormData(form);
+            
+            // Debug: Log all form data
+            console.log('📝 Form data collected:');
+            for (let [key, value] of formData.entries()) {
+                console.log(`  ${key}: ${value}`);
+            }
             
             // Update button state
             const originalText = button.textContent;
@@ -852,11 +860,18 @@
                     to_email: 'creativestage.art@gmail.com'
                 };
                 
-                console.log('Sending email with params:', templateParams);
+                console.log('📧 Sending email with params:', templateParams);
+                console.log('🔧 EmailJS Config:', { serviceId, templateId, publicKey });
+                
+                // Validate EmailJS is loaded
+                if (typeof emailjs === 'undefined') {
+                    throw new Error('EmailJS library not loaded');
+                }
                 
                 // Send email using EmailJS
+                console.log('⏳ Attempting to send email...');
                 const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
-                console.log('EmailJS Response:', response);
+                console.log('✅ EmailJS Response:', response);
                 
                 // Success state
                 button.textContent = '✓ Party Request Sent!';
@@ -873,29 +888,46 @@
                 }, 3000);
                 
             } catch (error) {
-                console.error('Email sending failed:', error);
-                console.error('Error details:', error.text, error.status);
+                console.error('❌ Email sending failed:', error);
+                console.error('📋 Full error object:', JSON.stringify(error, null, 2));
+                console.error('🔍 Error details:', {
+                    message: error.message,
+                    text: error.text,
+                    status: error.status,
+                    name: error.name,
+                    stack: error.stack
+                });
                 
                 // Error state
                 button.textContent = '❌ Failed to Send';
                 button.style.background = 'var(--color-primary)';
                 
-                let errorMessage = 'Failed to send party request. Please contact us directly at creativestage.art@gmail.com or call (604) 789-9523.';
+                let errorMessage = `Failed to send party request. Error: ${error.message || 'Unknown error'}. Please contact us directly at creativestage.art@gmail.com or call (604) 789-9523.`;
                 
-                // Specific error handling based on portfolio code
-                if (error.message && error.message.includes('configuration')) {
+                // Specific error handling with more detailed messages
+                if (error.message && error.message.includes('EmailJS library not loaded')) {
+                    errorMessage = 'Email service not available. Please refresh the page and try again, or contact us directly.';
+                } else if (error.message && error.message.includes('configuration')) {
                     errorMessage = 'Email service configuration error. Please contact us directly at creativestage.art@gmail.com';
+                } else if (error.text && error.text.includes('Template')) {
+                    errorMessage = 'Email template error. Please contact us directly at creativestage.art@gmail.com';
                 } else if (error.status === 400) {
-                    errorMessage = 'Invalid form data. Please check all fields and try again.';
+                    errorMessage = `Invalid form data (Error 400: ${error.text || 'Bad Request'}). Please check all fields and try again.`;
                 } else if (error.status === 401) {
-                    errorMessage = 'Email service authentication failed. Please contact us directly at creativestage.art@gmail.com';
+                    errorMessage = `Authentication failed (Error 401: ${error.text || 'Unauthorized'}). Please contact us directly at creativestage.art@gmail.com`;
                 } else if (error.status === 403) {
-                    errorMessage = 'Email service access denied. Please contact us directly at creativestage.art@gmail.com';
+                    errorMessage = `Access denied (Error 403: ${error.text || 'Forbidden'}). Please contact us directly at creativestage.art@gmail.com`;
+                } else if (error.status === 404) {
+                    errorMessage = `Service not found (Error 404: ${error.text || 'Not Found'}). Please contact us directly at creativestage.art@gmail.com`;
                 } else if (error.status === 429) {
                     errorMessage = 'Too many requests. Please wait a moment and try again.';
                 }
                 
+                // Show detailed error to user
                 showNotification('❌ ' + errorMessage);
+                
+                // Also display error in an alert for immediate visibility
+                alert(`Form Error:\n\n${errorMessage}\n\nCheck browser console (F12) for technical details.`);
                 
                 setTimeout(() => {
                     button.textContent = originalText;
