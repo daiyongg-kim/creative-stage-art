@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>🎨 Art Classes & Programs - Creative Stage</title>
     <meta name="description" content="Art classes for all skill levels. Drawing, painting, pottery, digital art, and mixed media classes for children and teens ages 5-17.">
+    <!-- Cache refresh: 2025-08-31-v11 -->
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -13,6 +17,470 @@
     
     <!-- CSS -->
     <link rel="stylesheet" href="styles/main.css">
+    
+    <!-- EMBEDDED CLASSES FORM STYLES -->
+    <style>
+        /* STUNNING CLASSES REGISTRATION FORM - EMBEDDED FOR RELIABILITY */
+        section.registration.registration-section,
+        .registration-section {
+            padding: 60px 20px !important;
+            background: linear-gradient(135deg, #a8e6cf 0%, #88d8a3 30%, #ffd3a5 70%, #fd9853 100%) !important;
+            min-height: 100vh !important;
+            position: relative !important;
+        }
+
+        section.registration.registration-section::before,
+        .registration-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="2" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1.5" fill="rgba(255,255,255,0.15)"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.2)"/><circle cx="10" cy="60" r="2.5" fill="rgba(255,255,255,0.08)"/><circle cx="90" cy="40" r="1.2" fill="rgba(255,255,255,0.12)"/></svg>') repeat;
+            opacity: 0.6;
+            pointer-events: none;
+            animation: sparkleBackground 10s linear infinite;
+        }
+
+        .registration-card {
+            max-width: 800px !important;
+            margin: 0 auto !important;
+            background: white !important;
+            border-radius: 30px !important;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.3) !important;
+            overflow: hidden !important;
+            position: relative !important;
+            z-index: 1 !important;
+            gap: 0 !important;
+        }
+
+        /* MAGICAL HEADER FOR FORM */
+        .classes-form-header {
+            background: linear-gradient(135deg, #a8e6cf 0%, #88d8a3 30%, #ffd3a5 70%, #fd9853 100%) !important;
+            padding: 40px 30px !important;
+            position: relative !important;
+            overflow: hidden !important;
+            text-align: center !important;
+            color: white !important;
+            border-radius: 25px !important;
+            margin-bottom: 20px !important;
+        }
+
+        .classes-form-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.2) 0%, transparent 50%), 
+                        radial-gradient(circle at 80% 50%, rgba(255,255,255,0.15) 0%, transparent 50%);
+            opacity: 0.8;
+        }
+
+        .header-decorations-classes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .classes-decoration {
+            position: absolute;
+            font-size: 2.5rem;
+            animation: floatClasses 4s ease-in-out infinite;
+            opacity: 0.9;
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.2));
+        }
+
+        .decoration-1 { top: 15%; left: 8%; animation-delay: 0s; }
+        .decoration-2 { top: 20%; right: 12%; animation-delay: 1.5s; }
+        .decoration-3 { bottom: 15%; left: 15%; animation-delay: 3s; }
+
+        .header-content-classes {
+            position: relative;
+            z-index: 2;
+        }
+
+        .classes-title-icon {
+            font-size: 4rem;
+            margin-bottom: 15px;
+            animation: bounceClasses 3s ease-in-out infinite;
+            display: block;
+            filter: drop-shadow(0 4px 10px rgba(0,0,0,0.3));
+        }
+
+        .classes-form-title {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.2rem;
+            margin: 0 0 15px 0;
+            text-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            letter-spacing: -1px;
+            line-height: 1.1;
+        }
+
+        .classes-form-subtitle {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            opacity: 0.95;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            font-weight: 500;
+        }
+
+        /* FORM CONTAINER */
+        .registration-form {
+            padding: 40px;
+            background: linear-gradient(145deg, #f8fafc 0%, #ffffff 100%);
+            text-align: center;
+        }
+
+        /* FORM SECTIONS */
+        .contact-form {
+            background: white;
+            border-radius: 25px;
+            padding: 35px;
+            border: 3px solid transparent;
+            text-align: center;
+            background-image: linear-gradient(white, white), linear-gradient(135deg, #a8e6cf, #88d8a3, #ffd3a5, #fd9853);
+            background-origin: border-box;
+            background-clip: content-box, border-box;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-form::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #a8e6cf 0%, #88d8a3 30%, #ffd3a5 70%, #fd9853 100%);
+            border-radius: 25px 25px 0 0;
+        }
+
+        .contact-form h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2rem;
+            color: #88d8a3;
+            margin: 0 0 25px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        .contact-form h3::before {
+            content: '🎨';
+            font-size: 2.5rem;
+        }
+
+        /* FORM FIELDS */
+        .form-group {
+            margin-bottom: 25px;
+            text-align: center !important;
+        }
+
+        .form-group label {
+            display: block !important;
+            text-align: center !important;
+            font-weight: 700;
+            color: #374151;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+            justify-content: center !important;
+        }
+
+        /* INPUT STYLING */
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            max-width: 500px;
+            padding: 18px 25px;
+            border: 3px solid #e2e8f0;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            font-family: 'Open Sans', sans-serif;
+            background: white;
+            transition: all 0.3s ease;
+            margin: 0 auto;
+            display: block;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            font-weight: 500;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #88d8a3;
+            box-shadow: 0 0 0 6px rgba(136, 216, 163, 0.2), 0 8px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            background: #fefefe;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+            line-height: 1.7;
+        }
+
+        /* SELECT STYLING */
+        .form-group select {
+            appearance: none;
+            cursor: pointer;
+            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 4 5"><path fill="%23666" d="M2 0L0 2h4zm0 5L0 3h4z"/></svg>');
+            background-repeat: no-repeat;
+            background-position: right 20px center;
+            background-size: 12px;
+            padding-right: 50px;
+        }
+
+        /* SUBMIT BUTTON */
+        .form-group button {
+            display: block !important;
+            margin: 0 auto !important;
+            text-align: center !important;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: linear-gradient(135deg, #a8e6cf 0%, #88d8a3 30%, #ffd3a5 70%, #fd9853 100%);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 20px 50px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            font-family: 'Fredoka One', cursive;
+            cursor: pointer;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 35px rgba(136, 216, 163, 0.5);
+            position: relative;
+            overflow: hidden;
+            min-width: 280px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+        }
+
+        .form-group button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.8s ease;
+        }
+
+        .form-group button:hover:not(:disabled) {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 50px rgba(136, 216, 163, 0.6);
+        }
+
+        .form-group button:hover:not(:disabled)::before {
+            left: 100%;
+        }
+
+        .form-group button:disabled {
+            opacity: 0.8;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* ANIMATIONS */
+        @keyframes floatClasses {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-12px) rotate(2deg); }
+            50% { transform: translateY(-6px) rotate(-1deg); }
+            75% { transform: translateY(-9px) rotate(1deg); }
+        }
+
+        @keyframes bounceClasses {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            10% { transform: translateY(-6px) rotate(-1deg); }
+            30% { transform: translateY(-10px) rotate(1deg); }
+            40% { transform: translateY(-12px) rotate(-1deg); }
+            60% { transform: translateY(-6px) rotate(1deg); }
+        }
+
+        @keyframes sparkleBackground {
+            0% { transform: translateX(0px); }
+            100% { transform: translateX(100px); }
+        }
+
+        /* SUCCESS BANNER */
+        .classes-success-banner {
+            margin: 20px 0;
+            background: linear-gradient(135deg, #10b981 0%, #059669 50%, #065f46 100%);
+            border-radius: 20px;
+            padding: 30px;
+            color: white;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(16, 185, 129, 0.4);
+            animation: successSlide 1s ease-out;
+        }
+
+        .success-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+
+        @keyframes successSlide {
+            0% { opacity: 0; transform: translateY(-20px) scale(0.9); }
+            100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 768px) {
+            .registration-card {
+                margin: 0 15px;
+            }
+            
+            .registration-form {
+                padding: 25px 20px;
+            }
+            
+            .contact-form {
+                padding: 25px;
+            }
+            
+            .classes-form-title {
+                font-size: 1.8rem;
+            }
+            
+            .form-group button {
+                min-width: auto;
+                padding: 16px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .classes-decoration {
+                font-size: 2rem;
+            }
+            
+            .classes-title-icon {
+                font-size: 3rem;
+            }
+        }
+        
+        /* WHAT'S INCLUDED SECTION STYLING - GREEN BOX STYLE */
+        .whats-included-main-section {
+            background: linear-gradient(135deg, #a8e6cf 0%, #88d8a3 50%, #7bcf9f 100%);
+            border-radius: 25px;
+            margin: 0 auto 30px auto;
+            max-width: 800px;
+            box-shadow: 0 10px 30px rgba(136, 216, 163, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .whats-included-main-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 6px;
+            background: linear-gradient(90deg, #88d8a3 0%, #66c48f 50%, #44b075 100%);
+            border-radius: 25px 25px 0 0;
+        }
+
+        .whats-included-main-section .registration-info {
+            padding: 40px;
+        }
+
+        .whats-included-main-section h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2rem;
+            color: white;
+            margin: 0 0 25px 0;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .whats-included-main-section h3::before {
+            content: '🎨';
+            font-size: 2.5rem;
+        }
+
+        .whats-included-main-section .included-list {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 30px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 15px;
+        }
+
+        .whats-included-main-section .included-list li {
+            padding: 15px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            color: white;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(5px);
+        }
+
+        .whats-included-main-section .included-list li:hover {
+            transform: translateY(-2px);
+            background: rgba(255, 255, 255, 0.3);
+            border-color: rgba(255, 255, 255, 0.5);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .whats-included-main-section .pricing-options h4 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 1.8rem;
+            color: white;
+            margin: 0 0 20px 0;
+            text-align: center;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .whats-included-main-section .pricing-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 12px;
+        }
+
+        .whats-included-main-section .pricing-list li {
+            padding: 12px 18px;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2d5016;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .whats-included-main-section .pricing-list li:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+        }
+    </style>
     
     <!-- Favicons -->
     <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
@@ -218,6 +686,38 @@
             </div>
         </section>
 
+        <!-- What's Included Section - Moved Up -->
+        <section class="whats-included-section">
+            <div class="container">
+                <div class="whats-included-main-section">
+                    <div class="registration-info">
+                        <h3>What's Included in Every Class:</h3>
+                        <ul class="included-list">
+                            <li>✓ All art materials and supplies</li>
+                            <li>✓ Professional instruction and guidance</li>
+                            <li>✓ Individual feedback and support</li>
+                            <li>✓ Take-home artwork from every class</li>
+                            <li>✓ Progress tracking and portfolio development</li>
+                            <li>✓ Access to our online parent portal</li>
+                            <li>✓ End-of-session art show opportunity</li>
+                            <li>✓ Make-up class options for absences</li>
+                        </ul>
+                        
+                        <div class="pricing-options">
+                            <h4>Flexible Payment Options:</h4>
+                            <ul class="pricing-list">
+                                <li><strong>Single Classes:</strong> $65-105 per class</li>
+                                <li><strong>4-Class Package:</strong> $240-400 (Save 10%)</li>
+                                <li><strong>8-Class Package:</strong> $460-800 (Save 15%)</li>
+                                <li><strong>Monthly Unlimited:</strong> $280-450/month</li>
+                                <li><strong>Sibling Discount:</strong> 15% off additional children</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Age-Based Programs -->
         <section id="age-programs" class="age-programs">
             <div class="container">
@@ -343,6 +843,113 @@
             </div>
         </section>
 
+        <!-- Featured Classes -->
+        <section id="featured-classes" class="featured-classes">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">🌟 Featured Classes This Season</h2>
+                    <p class="section-description">
+                        Special classes and workshops designed to challenge and inspire our students.
+                    </p>
+                </div>
+                
+                <div class="featured-grid">
+                    <div class="featured-class-card">
+                        <div class="class-image">🎨</div>
+                        <div class="class-content">
+                            <h3 class="class-title">Watercolor Wonders</h3>
+                            <p class="class-instructor">with Ms. Sarah Johnson</p>
+                            <p class="class-description">
+                                Learn the beautiful, flowing techniques of watercolor painting. From wet-on-wet to dry brush 
+                                techniques, create stunning landscapes and florals.
+                            </p>
+                            <div class="class-details">
+                                <span class="detail">Ages 8-14</span>
+                                <span class="detail">6 weeks</span>
+                                <span class="detail">Thursdays 4:00-5:30 PM</span>
+                                <span class="detail">$450</span>
+                            </div>
+                            <div class="class-skills">
+                                <span class="skill-tag">Watercolor Techniques</span>
+                                <span class="skill-tag">Color Blending</span>
+                                <span class="skill-tag">Landscape Painting</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-class-card popular">
+                        <div class="popular-badge">Almost Full!</div>
+                        <div class="class-image">🏺</div>
+                        <div class="class-content">
+                            <h3 class="class-title">Pottery Wheel Adventures</h3>
+                            <p class="class-instructor">with Mr. David Chen</p>
+                            <p class="class-description">
+                                Master the pottery wheel! Learn centering, pulling walls, and shaping clay into functional 
+                                bowls, mugs, and vases. Includes glazing and firing.
+                            </p>
+                            <div class="class-details">
+                                <span class="detail">Ages 10-17</span>
+                                <span class="detail">8 weeks</span>
+                                <span class="detail">Saturdays 10:00-12:00 PM</span>
+                                <span class="detail">$640</span>
+                            </div>
+                            <div class="class-skills">
+                                <span class="skill-tag">Wheel Throwing</span>
+                                <span class="skill-tag">Clay Centering</span>
+                                <span class="skill-tag">Glazing</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-class-card">
+                        <div class="class-image">💻</div>
+                        <div class="class-content">
+                            <h3 class="class-title">Digital Art & Animation</h3>
+                            <p class="class-instructor">with Ms. Emily Rodriguez</p>
+                            <p class="class-description">
+                                Explore digital illustration using iPad Pro and Apple Pencil. Create characters, backgrounds, 
+                                and simple animations using professional software.
+                            </p>
+                            <div class="class-details">
+                                <span class="detail">Ages 12-17</span>
+                                <span class="detail">6 weeks</span>
+                                <span class="detail">Tuesdays 6:00-7:30 PM</span>
+                                <span class="detail">$480</span>
+                            </div>
+                            <div class="class-skills">
+                                <span class="skill-tag">Digital Illustration</span>
+                                <span class="skill-tag">Character Design</span>
+                                <span class="skill-tag">Animation Basics</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="featured-class-card">
+                        <div class="class-image">✏️</div>
+                        <div class="class-content">
+                            <h3 class="class-title">Portrait Drawing Intensive</h3>
+                            <p class="class-instructor">with Ms. Rachel Martinez</p>
+                            <p class="class-description">
+                                Learn to draw realistic portraits using graphite and charcoal. Study facial proportions, 
+                                shading techniques, and capturing expressions.
+                            </p>
+                            <div class="class-details">
+                                <span class="detail">Ages 13-17</span>
+                                <span class="detail">4 weeks</span>
+                                <span class="detail">Sundays 2:00-4:00 PM</span>
+                                <span class="detail">$320</span>
+                            </div>
+                            <div class="class-skills">
+                                <span class="skill-tag">Portrait Drawing</span>
+                                <span class="skill-tag">Facial Proportions</span>
+                                <span class="skill-tag">Shading Techniques</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <!-- Trial Classes -->
         <section id="trial" class="trial-classes">
             <div class="container">
@@ -392,7 +999,7 @@
         </section>
 
         <!-- Registration -->
-        <section id="register" class="registration">
+        <section id="register" class="registration registration-section">
             <div class="container">
                 <div class="section-header">
                     <h2 class="section-title">📝 Register for Classes</h2>
@@ -401,40 +1008,23 @@
                     </p>
                 </div>
                 
-                <div class="registration-content">
-                    <div class="registration-info">
-                        <h3>What's Included in Every Class:</h3>
-                        <ul class="included-list">
-                            <li>✓ All art materials and supplies</li>
-                            <li>✓ Professional instruction and guidance</li>
-                            <li>✓ Individual feedback and support</li>
-                            <li>✓ Take-home artwork from every class</li>
-                            <li>✓ Progress tracking and portfolio development</li>
-                            <li>✓ Access to our online parent portal</li>
-                            <li>✓ End-of-session art show opportunity</li>
-                            <li>✓ Make-up class options for absences</li>
-                        </ul>
-                        
-                        <div class="pricing-packages">
-                            <h4>Flexible Payment Options:</h4>
-                            <ul class="package-list">
-                                <li><strong>Single Classes:</strong> $65-105 per class</li>
-                                <li><strong>4-Class Package:</strong> $240-400 (Save 10%)</li>
-                                <li><strong>8-Class Package:</strong> $460-800 (Save 15%)</li>
-                                <li><strong>Monthly Unlimited:</strong> $280-450/month</li>
-                                <li><strong>Sibling Discount:</strong> 15% off additional children</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="contact-info">
-                            <h4>Questions? Contact Us!</h4>
-                            <p>📞 Call us at <strong>(555) 123-ARTS</strong></p>
-                            <p>✉️ Email <strong>classes@creativestage.ca</strong></p>
-                            <p>🌐 Visit us at <strong>123 Creative Lane, Artville</strong></p>
-                        </div>
-                    </div>
+                <div class="registration-card">
                     
                     <div class="registration-form">
+                        <!-- Magical Classes Form Header -->
+                        <div class="classes-form-header">
+                            <div class="header-decorations-classes">
+                                <div class="classes-decoration decoration-1">🎨</div>
+                                <div class="classes-decoration decoration-2">🖌️</div>
+                                <div class="classes-decoration decoration-3">✨</div>
+                            </div>
+                            <div class="header-content-classes">
+                                <div class="classes-title-icon">🎆</div>
+                                <h2 class="classes-form-title">Artistic Excellence</h2>
+                                <p class="classes-form-subtitle">Develop your artistic skills with professional instruction and creative exploration!</p>
+                            </div>
+                        </div>
+                        
                         <form class="contact-form" onsubmit="submitClassRegistration(event)">
                             <h3>Class Registration Form</h3>
                             
@@ -475,51 +1065,6 @@
                             </div>
                             
                             <div class="form-group">
-                                <label for="class-interest">Class Interest</label>
-                                <div class="checkbox-group">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="class-interest" value="drawing"> Drawing & Illustration
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="class-interest" value="painting"> Painting & Color Theory
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="class-interest" value="pottery"> Pottery & Ceramics
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="class-interest" value="digital"> Digital Art & Design
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="class-interest" value="mixed-media"> Mixed Media & Collage
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="class-interest" value="trial"> Trial Class ($25)
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
-                                <label for="schedule-preference">Schedule Preference</label>
-                                <div class="checkbox-group">
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="schedule-preference" value="weekday-afternoon"> Weekday Afternoons (3:30-6:00 PM)
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="schedule-preference" value="weekday-evening"> Weekday Evenings (6:00-8:00 PM)
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="schedule-preference" value="saturday-morning"> Saturday Mornings (9:00 AM-12:00 PM)
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="schedule-preference" value="saturday-afternoon"> Saturday Afternoons (1:00-4:00 PM)
-                                    </label>
-                                    <label class="checkbox-label">
-                                        <input type="checkbox" name="schedule-preference" value="sunday"> Sunday Classes (10:00 AM-2:00 PM)
-                                    </label>
-                                </div>
-                            </div>
-                            
-                            <div class="form-group">
                                 <label for="parent-name">Parent/Guardian Name</label>
                                 <input type="text" id="parent-name" name="parent-name" required>
                             </div>
@@ -545,7 +1090,7 @@
                             </div>
                             
                             <button type="submit" class="btn btn-primary btn-large">Submit Class Registration</button>
-                            <p class="form-note">We'll contact you within 24 hours to confirm class availability and schedule your first session.</p>
+                            <p class="form-note" style="text-align: center !important;">We'll contact you within 24 hours to confirm class availability and schedule your first session.</p>
                         </form>
                     </div>
                 </div>
@@ -562,7 +1107,7 @@
                         🎨 <span class="logo-text">Creative Stage</span> ✨
                     </div>
                     <p class="footer-description">
-                        Making art magical since 2014. Where every child is an artist waiting to shine!
+                        Making art magical since 2024.
                     </p>
                 </div>
                 
@@ -579,41 +1124,143 @@
                 <div class="footer-section">
                     <h3 class="footer-title">Contact Info</h3>
                     <div class="contact-info">
-                        <p>📍 123 Creative Lane, Artville, Canada</p>
-                        <p>📞 <a href="tel:+15551232787">(555) 123-ARTS (2787)</a></p>
-                        <p>✉️ <a href="mailto:classes@creativestage.ca">classes@creativestage.ca</a></p>
-                        <p>🕒 Classes: Mon-Sun 9 AM - 8 PM</p>
+                        <p>📍 1381 George St unit1, White Rock, BC V4B 2L1</p>
+                        <p>📞 <a href="tel:+16047899523">(604) 789-9523</a></p>
+                        <p>✉️ <a href="mailto:creativestage.art@gmail.com">creativestage.art@gmail.com</a></p>
+                        <p>📸 <a href="https://www.instagram.com/creative_stage_art/" target="_blank" rel="noopener noreferrer">@creative_stage_art</a></p>
+                        <p>🕒 Mon-Fri: 7 AM - 6 PM</p>
                     </div>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Creative Stage. Making art magical since 2014. 🎨</p>
+                <p>&copy; 2025 Creative Stage. Making art magical since 2024. 🎨</p>
             </div>
         </div>
     </footer>
 
     <!-- Scripts -->
     <script src="scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script>
-        function submitClassRegistration(event) {
+        // Initialize EmailJS when library loads
+        function initializeEmailJS() {
+            if (typeof emailjs !== 'undefined') {
+                console.log('✅ EmailJS loaded successfully for classes');
+                emailjs.init("ALxlKW9NGkkffGF2z");
+                console.log('✅ EmailJS initialized with public key');
+            } else {
+                console.log('⏳ Waiting for EmailJS to load...');
+                setTimeout(initializeEmailJS, 200);
+            }
+        }
+        
+        // Start initialization when DOM is ready
+        document.addEventListener('DOMContentLoaded', initializeEmailJS);
+
+        async function submitClassRegistration(event) {
             event.preventDefault();
-            const button = event.target.querySelector('button');
+            
+            const form = event.target;
+            const formData = new FormData(form);
+            const button = form.querySelector('button');
+            const originalText = button.textContent;
+            
             button.textContent = 'Processing Registration...';
             button.disabled = true;
             
-            setTimeout(() => {
+            try {
+                // EmailJS configuration
+                const serviceId = 'service_hztqnyv';
+                const publicKey = 'ALxlKW9NGkkffGF2z';
+                const templateId = 'template_vc6cs0h';
+                
+                console.log('📧 Sending class registration email');
+                
+                // Enhanced email template parameters
+                const today = new Date().toLocaleDateString();
+                const requestTime = new Date().toLocaleString();
+                
+                const templateParams = {
+                    // Header Information
+                    subject: `🎨 CLASS REGISTRATION - ${formData.get('student-name')}`,
+                    request_date: today,
+                    request_time: requestTime,
+                    
+                    // Parent Contact Information
+                    from_name: formData.get('parent-name'),
+                    from_email: formData.get('parent-email'),
+                    parent_phone: formData.get('parent-phone'),
+                    
+                    // Student Information
+                    child_name: formData.get('student-name'),
+                    child_age: formData.get('student-age'),
+                    
+                    // Program Details
+                    package_interest: `Art Classes - ${formData.get('class-preference')} (${formData.get('experience-level')})`,
+                    guest_count: '1 student',
+                    party_date: formData.get('start-date') ? new Date(formData.get('start-date')).toLocaleDateString() : 'To be discussed',
+                    party_time: `${formData.get('schedule-preference')} • ${formData.get('session-length')} sessions`,
+                    
+                    // Additional Information
+                    special_requests: `Interests: ${formData.get('interests')} • Goals: ${formData.get('goals')} • Special needs: ${formData.get('special-needs') || 'None mentioned'}`,
+                    how_heard: 'Art classes program inquiry',
+                    
+                    // Business Information
+                    to_email: 'creativestage.art@gmail.com',
+                    business_name: 'Creative Stage',
+                    business_location: 'White Rock, BC',
+                    business_website: 'creativestage.art',
+                    
+                    // Formatted Summary for Quick Reference
+                    quick_summary: `${formData.get('student-name')} • Age ${formData.get('student-age')} • ${formData.get('class-preference')} • ${formData.get('experience-level')} • Start: ${formData.get('start-date') || 'TBD'}`
+                };
+                
+                console.log('📧 Sending email with params:', templateParams);
+                
+                // Validate EmailJS is loaded
+                if (typeof emailjs === 'undefined') {
+                    throw new Error('EmailJS library not loaded');
+                }
+                
+                // Send email using EmailJS
+                const response = await emailjs.send(serviceId, templateId, templateParams, publicKey);
+                console.log('✅ EmailJS Response:', response);
+                
+                // Success state
                 button.textContent = '✓ Registration Received!';
                 button.style.background = 'var(--color-success)';
                 showNotification('🎨 Thank you for your registration! We\'ll contact you within 24 hours to confirm class availability and schedule your first session.');
-                event.target.reset();
+                form.reset();
                 
                 setTimeout(() => {
-                    button.textContent = 'Submit Class Registration';
+                    button.textContent = originalText;
                     button.disabled = false;
                     button.style.background = '';
                 }, 3000);
-            }, 1500);
+                
+            } catch (error) {
+                console.error('❌ Email sending failed:', error);
+                console.error('🔍 Error details:', {
+                    message: error.message,
+                    text: error.text,
+                    status: error.status
+                });
+                
+                // Error handling
+                let errorMessage = 'Failed to send class registration. Please contact us directly at creativestage.art@gmail.com or call (604) 789-9523.';
+                
+                if (error.message && error.message.includes('EmailJS library not loaded')) {
+                    errorMessage = 'Email service not available. Please refresh the page and try again.';
+                }
+                
+                alert(`Registration Error:\n\n${errorMessage}`);
+                
+                // Reset button
+                button.textContent = originalText;
+                button.disabled = false;
+                button.style.background = '';
+            }
         }
     </script>
 </body>
