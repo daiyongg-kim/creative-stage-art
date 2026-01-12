@@ -1139,44 +1139,91 @@
                 const today = new Date().toLocaleDateString();
                 const requestTime = new Date().toLocaleString();
                 
+                // Format party date
+                const partyDateFormatted = new Date(formData.get('party-date')).toLocaleDateString('en-US', {
+                    weekday: 'long',
+                    year: 'numeric',
+                    month: 'long',
+                    day: 'numeric'
+                });
+
+                // Create comprehensive message with ALL information
+                const fullMessage = `
+========================================
+🎉 BIRTHDAY PARTY BOOKING REQUEST
+========================================
+
+📅 Request Date: ${today}
+⏰ Request Time: ${requestTime}
+
+【 BIRTHDAY CHILD 】
+• Child's Name: ${formData.get('birthday-child')}
+• Age: ${formData.get('child-age')}
+
+【 PARTY DETAILS 】
+• Preferred Date: ${partyDateFormatted}
+• Start Time: ${formData.get('party-time')}
+• Number of Guests: ${formData.get('guest-count')}
+• Package Interest: ${formData.get('package-interest')}
+• Theme Preference: ${formData.get('theme-preference') || 'Not specified'}
+
+【 PARTY LOCATION 】
+• Location Type: ${formData.get('party-location') || 'Not specified'}
+• Address: ${formData.get('party-address') || 'Not provided'}
+
+【 CONTACT INFORMATION 】
+• Parent/Guardian Name: ${formData.get('parent-name')}
+• Email: ${formData.get('parent-email')}
+• Phone: ${formData.get('parent-phone')}
+
+【 ADDITIONAL DETAILS 】
+• Special Requests: ${formData.get('special-requests') || 'None'}
+• How did you hear about us: ${formData.get('how-heard') || 'Not specified'}
+
+========================================
+`;
+
                 const templateParams = {
                     // Header Information
                     subject: `🎉 PARTY BOOKING REQUEST - ${formData.get('birthday-child')} (Age ${formData.get('child-age')})`,
                     request_date: today,
                     request_time: requestTime,
-                    
+
                     // Parent Contact Information
                     from_name: formData.get('parent-name'),
                     from_email: formData.get('parent-email'),
                     parent_phone: formData.get('parent-phone'),
-                    
+
                     // Party Details
                     child_name: formData.get('birthday-child'),
                     child_age: formData.get('child-age'),
-                    party_date: new Date(formData.get('party-date')).toLocaleDateString('en-US', { 
-                        weekday: 'long', 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                    }),
+                    party_date: partyDateFormatted,
                     party_time: formData.get('party-time'),
                     guest_count: formData.get('guest-count'),
-                    
+                    theme_preference: formData.get('theme-preference') || 'Not specified',
+
+                    // Location
+                    party_location: formData.get('party-location') || 'Not specified',
+                    party_address: formData.get('party-address') || 'Not provided',
+
                     // Package
                     package_interest: formData.get('package-interest'),
-                    
+
                     // Additional Information
                     special_requests: formData.get('special-requests') || 'No special requests',
-                    how_heard: formData.get('how-heard'),
-                    
+                    how_heard: formData.get('how-heard') || 'Not specified',
+
+                    // ⭐ FULL MESSAGE - Use {{message}} in EmailJS template to show ALL info
+                    message: fullMessage,
+
                     // Business Information
                     to_email: 'creativestage.art@gmail.com',
                     business_name: 'Creative Stage',
                     business_location: 'White Rock, BC',
                     business_website: 'creativestage.art',
-                    
+
                     // Formatted Summary for Quick Reference
-                    quick_summary: `${formData.get('birthday-child')} (${formData.get('child-age')}) • ${formData.get('guest-count')} guests • ${new Date(formData.get('party-date')).toLocaleDateString()} • ${formData.get('package-interest')}`
+                    quick_summary: `${formData.get('birthday-child')} (${formData.get('child-age')}) • ${formData.get('guest-count')} guests • ${partyDateFormatted} • ${formData.get('package-interest')}`
                 };
                 
                 console.log('📧 Sending email with params:', templateParams);
