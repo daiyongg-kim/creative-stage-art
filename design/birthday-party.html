@@ -624,7 +624,9 @@
                     </div>
                     
                     <div class="booking-form">
-                        <form class="contact-form" onsubmit="submitPartyBooking(event)">
+                        <form class="contact-form" name="birthday-party" method="POST" data-netlify="true" onsubmit="submitPartyBooking(event)">
+                            <input type="hidden" name="form-name" value="birthday-party">
+                            <input type="hidden" name="content" id="form-content">
                             <h3>Party Booking Request Form</h3>
                             
                             <div class="form-group">
@@ -869,16 +871,43 @@ BIRTHDAY PARTY BOOKING REQUEST
 ========================================
 `;
 
-            // Update the special-requests field with all content
+            // Update both the hidden content field and special-requests
+            form.querySelector('#form-content').value = fullContent;
             form.querySelector('#special-requests').value = fullContent;
 
-            // Now submit the form normally
+            // Show loading state
             const button = form.querySelector('button[type="submit"]');
             button.textContent = 'Sending Party Request...';
             button.disabled = true;
 
-            // Submit the form
-            form.submit();
+            // Submit using fetch for Netlify Forms
+            const formData = new FormData(form);
+
+            fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(formData).toString()
+            })
+            .then(response => {
+                if (response.ok) {
+                    button.textContent = '✓ Party Request Sent!';
+                    button.style.background = 'var(--color-success)';
+                    showNotification('🎉 Thank you for your party request! We will contact you within 24 hours!');
+                    form.reset();
+                    setTimeout(() => {
+                        button.textContent = 'Request Party Booking';
+                        button.disabled = false;
+                        button.style.background = '';
+                    }, 3000);
+                } else {
+                    throw new Error('Submission failed');
+                }
+            })
+            .catch(error => {
+                button.textContent = 'Error - Try Again';
+                button.disabled = false;
+                showNotification('❌ Error submitting form. Please try again.');
+            });
         }
         
         // Add party decoration animations
