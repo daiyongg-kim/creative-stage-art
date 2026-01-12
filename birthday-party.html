@@ -1209,11 +1209,11 @@
                     // Package
                     package_interest: formData.get('package-interest'),
 
-                    // Additional Information
-                    special_requests: formData.get('special-requests') || 'No special requests',
+                    // Additional Information - PUT ALL INFO IN special_requests since it shows in email
+                    special_requests: fullMessage,
                     how_heard: formData.get('how-heard') || 'Not specified',
 
-                    // ⭐ FULL MESSAGE - Use {{message}} in EmailJS template to show ALL info
+                    // Full message backup
                     message: fullMessage,
 
                     // Business Information
