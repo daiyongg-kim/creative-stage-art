@@ -821,70 +821,64 @@
 
             // Collect all form data
             const childName = form.querySelector('#birthday-child').value || 'Not provided';
-            const childAge = form.querySelector('#child-age').value || 'Not provided';
+            const childAge = form.querySelector('#child-age').selectedOptions[0]?.text || 'Not provided';
             const partyDate = form.querySelector('#party-date').value || 'Not provided';
-            const partyTime = form.querySelector('#party-time').value || 'Not provided';
-            const guestCount = form.querySelector('#guest-count').value || 'Not provided';
-            const packageInterest = form.querySelector('#package-interest').value || 'Not provided';
-            const themePreference = form.querySelector('#theme-preference').value || 'Not provided';
+            const partyTime = form.querySelector('#party-time').selectedOptions[0]?.text || 'Not provided';
+            const guestCount = form.querySelector('#guest-count').selectedOptions[0]?.text || 'Not provided';
+            const packageInterest = form.querySelector('#package-interest').selectedOptions[0]?.text || 'Not provided';
+            const themePreference = form.querySelector('#theme-preference').selectedOptions[0]?.text || 'Not provided';
             const partyLocationRadio = form.querySelector('input[name="party-location"]:checked');
             const partyLocation = partyLocationRadio ? partyLocationRadio.value : 'Not provided';
             const partyAddress = form.querySelector('#party-address').value || 'Not provided';
             const parentName = form.querySelector('#parent-name').value || 'Not provided';
             const parentEmail = form.querySelector('#parent-email').value || 'Not provided';
             const parentPhone = form.querySelector('#parent-phone').value || 'Not provided';
-            const specialRequests = form.querySelector('#special-requests').value || 'None';
-            const howHeard = form.querySelector('#how-heard').value || 'Not provided';
+            const originalSpecialRequests = form.querySelector('#special-requests').value || 'None';
+            const howHeard = form.querySelector('#how-heard').selectedOptions[0]?.text || 'Not provided';
 
-            // Format the email subject
-            const subject = `Birthday Party Request for ${childName}`;
-
-            // Format the email body with all information
-            const body = `
-===========================================
+            // Format all information into content
+            const fullContent = `
+========================================
 BIRTHDAY PARTY BOOKING REQUEST
-===========================================
+========================================
 
-BIRTHDAY CHILD INFORMATION
----------------------------
-Child's Name: ${childName}
-Age: ${childAge}
+【 BIRTHDAY CHILD 】
+• Child's Name: ${childName}
+• Age: ${childAge}
 
-PARTY DETAILS
----------------------------
-Preferred Date: ${partyDate}
-Start Time: ${partyTime}
-Number of Guests (including birthday child): ${guestCount}
-Package Interest: ${packageInterest}
-Theme Preference: ${themePreference}
+【 PARTY DETAILS 】
+• Preferred Date: ${partyDate}
+• Start Time: ${partyTime}
+• Number of Guests: ${guestCount}
+• Package Interest: ${packageInterest}
+• Theme Preference: ${themePreference}
 
-PARTY LOCATION
----------------------------
-Location Type: ${partyLocation}
-Address: ${partyAddress}
+【 PARTY LOCATION 】
+• Location Type: ${partyLocation}
+• Address: ${partyAddress}
 
-CONTACT INFORMATION
----------------------------
-Parent/Guardian Name: ${parentName}
-Email: ${parentEmail}
-Phone: ${parentPhone}
+【 CONTACT INFORMATION 】
+• Parent/Guardian Name: ${parentName}
+• Email: ${parentEmail}
+• Phone: ${parentPhone}
 
-ADDITIONAL DETAILS
----------------------------
-Special Requests or Custom Theme Details:
-${specialRequests}
+【 ADDITIONAL DETAILS 】
+• Special Requests: ${originalSpecialRequests}
+• How did you hear about us: ${howHeard}
 
-How did you hear about us: ${howHeard}
-
-===========================================
+========================================
 `;
 
-            // Create mailto link and open email client
-            const mailtoLink = `mailto:amezquita.cano@hotmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-            window.location.href = mailtoLink;
+            // Update the special-requests field with all content
+            form.querySelector('#special-requests').value = fullContent;
 
-            // Show success notification
-            showNotification('📧 Your email client is opening with all party details. Please click Send to submit your request!');
+            // Now submit the form normally
+            const button = form.querySelector('button[type="submit"]');
+            button.textContent = 'Sending Party Request...';
+            button.disabled = true;
+
+            // Submit the form
+            form.submit();
         }
         
         // Add party decoration animations
