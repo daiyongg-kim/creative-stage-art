@@ -1202,7 +1202,7 @@ section {
   .nav-menu {
     display: none;
     position: fixed;
-    top: 100%;
+    top: 70px;
     left: 0;
     right: 0;
     background: white;
@@ -1210,8 +1210,9 @@ section {
     padding: var(--spacing-lg);
     box-shadow: var(--shadow-lg);
     z-index: 1000;
+    gap: var(--spacing-sm);
   }
-  
+
   .nav-menu.active {
     display: flex;
   }
