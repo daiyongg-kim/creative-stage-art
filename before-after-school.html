@@ -1136,34 +1136,51 @@
                     subject: `🏠 BEFORE & AFTER SCHOOL REGISTRATION - ${formData.get('child-name')}`,
                     request_date: today,
                     request_time: requestTime,
-                    
+
                     // Parent Contact Information
                     from_name: formData.get('parent-name'),
                     from_email: formData.get('parent-email'),
                     parent_phone: formData.get('parent-phone'),
-                    
+
                     // Child Information
                     child_name: formData.get('child-name'),
                     child_age: formData.get('child-age'),
-                    
+
                     // Program Details
                     package_interest: 'Before & After School Care',
                     guest_count: '1 child',
                     party_date: formData.get('start-date') ? new Date(formData.get('start-date')).toLocaleDateString() : 'To be discussed',
-                    party_time: `${formData.get('care-type')} • ${formData.get('schedule-flexibility')}`,
-                    
-                    // Additional Information
-                    special_requests: `School: ${formData.get('school-name')} • Grade: ${formData.get('grade')} • Emergency: ${formData.get('emergency-contact')} • Special needs: ${formData.get('special-needs') || 'None mentioned'} • Transportation: ${formData.get('transportation-needs')}`,
+                    party_time: 'To be scheduled',
+
+                    // Additional Information - All details in special_requests
+                    special_requests: `[CHILD INFO]
+Child's Name: ${formData.get('child-name')}
+Grade Level: ${formData.get('child-age')}
+School: ${formData.get('school-name')}
+
+[PARENT/GUARDIAN INFO]
+Parent Name: ${formData.get('parent-name')}
+Email: ${formData.get('parent-email')}
+Phone: ${formData.get('parent-phone')}
+
+[EMERGENCY CONTACT]
+${formData.get('emergency-contact')}
+
+[SPECIAL CONSIDERATIONS]
+${formData.get('special-needs') || 'None mentioned'}
+
+[PREFERRED START DATE]
+${formData.get('start-date') ? new Date(formData.get('start-date')).toLocaleDateString() : 'To be discussed'}`,
                     how_heard: 'Before & After School program inquiry',
-                    
+
                     // Business Information
                     to_email: 'creativestage.art@gmail.com',
                     business_name: 'Creative Stage',
                     business_location: 'White Rock, BC',
                     business_website: 'creativestage.art',
-                    
+
                     // Formatted Summary for Quick Reference
-                    quick_summary: `${formData.get('child-name')} • Age ${formData.get('child-age')} • ${formData.get('care-type')} • School: ${formData.get('school-name')} • Start: ${formData.get('start-date') || 'TBD'}`
+                    quick_summary: `${formData.get('child-name')} • ${formData.get('child-age')} • ${formData.get('school-name')}`
                 };
                 
                 console.log('📧 Sending email with params:', templateParams);
