@@ -1186,34 +1186,48 @@
                     subject: `🎨 CLASS REGISTRATION - ${formData.get('student-name')}`,
                     request_date: today,
                     request_time: requestTime,
-                    
+
                     // Parent Contact Information
                     from_name: formData.get('parent-name'),
                     from_email: formData.get('parent-email'),
                     parent_phone: formData.get('parent-phone'),
-                    
+
                     // Student Information
                     child_name: formData.get('student-name'),
                     child_age: formData.get('student-age'),
-                    
+
                     // Program Details
-                    package_interest: `Art Classes - ${formData.get('class-preference')} (${formData.get('experience-level')})`,
+                    package_interest: `Art Classes (${formData.get('experience-level')})`,
                     guest_count: '1 student',
-                    party_date: formData.get('start-date') ? new Date(formData.get('start-date')).toLocaleDateString() : 'To be discussed',
-                    party_time: `${formData.get('schedule-preference')} • ${formData.get('session-length')} sessions`,
-                    
-                    // Additional Information
-                    special_requests: `Interests: ${formData.get('interests')} • Goals: ${formData.get('goals')} • Special needs: ${formData.get('special-needs') || 'None mentioned'}`,
+                    party_date: 'To be discussed',
+                    party_time: 'To be scheduled',
+
+                    // Additional Information - All details in special_requests
+                    special_requests: `[STUDENT INFO]
+Student Name: ${formData.get('student-name')}
+Student Age: ${formData.get('student-age')} years old
+Experience Level: ${formData.get('experience-level')}
+
+[PARENT/GUARDIAN INFO]
+Parent Name: ${formData.get('parent-name')}
+Email: ${formData.get('parent-email')}
+Phone: ${formData.get('parent-phone')}
+
+[ARTISTIC GOALS]
+${formData.get('goals') || 'Not specified'}
+
+[SPECIAL CONSIDERATIONS]
+${formData.get('special-needs') || 'None mentioned'}`,
                     how_heard: 'Art classes program inquiry',
-                    
+
                     // Business Information
                     to_email: 'creativestage.art@gmail.com',
                     business_name: 'Creative Stage',
                     business_location: 'White Rock, BC',
                     business_website: 'creativestage.art',
-                    
+
                     // Formatted Summary for Quick Reference
-                    quick_summary: `${formData.get('student-name')} • Age ${formData.get('student-age')} • ${formData.get('class-preference')} • ${formData.get('experience-level')} • Start: ${formData.get('start-date') || 'TBD'}`
+                    quick_summary: `${formData.get('student-name')} • Age ${formData.get('student-age')} • ${formData.get('experience-level')}`
                 };
                 
                 console.log('📧 Sending email with params:', templateParams);
