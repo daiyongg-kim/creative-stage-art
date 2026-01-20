@@ -1183,34 +1183,47 @@
                     subject: `🐣 PRESCHOOL REGISTRATION INTEREST - ${formData.get('child-name')}`,
                     request_date: today,
                     request_time: requestTime,
-                    
+
                     // Parent Contact Information
                     from_name: formData.get('parent-name'),
                     from_email: formData.get('parent-email'),
                     parent_phone: formData.get('parent-phone'),
-                    
+
                     // Child Information
                     child_name: formData.get('child-name'),
                     child_age: formData.get('child-age'),
-                    
+
                     // Program Details
                     package_interest: 'Preschool Program (Ages 3-5)',
                     guest_count: '1 child',
-                    party_date: formData.get('start-date') ? new Date(formData.get('start-date')).toLocaleDateString() : 'To be discussed',
-                    party_time: formData.get('preferred-days') || 'To be discussed',
-                    
-                    // Additional Information
-                    special_requests: formData.get('special-needs') || 'No special needs mentioned',
+                    party_date: 'To be discussed',
+                    party_time: formData.get('preferred-time') || 'To be discussed',
+
+                    // Additional Information - All details in special_requests
+                    special_requests: `[CHILD INFO]
+Child's Name: ${formData.get('child-name')}
+Child's Age: ${formData.get('child-age')}
+
+[PARENT/GUARDIAN INFO]
+Parent Name: ${formData.get('parent-name')}
+Email: ${formData.get('parent-email')}
+Phone: ${formData.get('parent-phone')}
+
+[PREFERRED CLASS TIME]
+${formData.get('preferred-time') || 'To be discussed'}
+
+[SPECIAL CONSIDERATIONS]
+${formData.get('special-needs') || 'None mentioned'}`,
                     how_heard: 'Preschool program inquiry',
-                    
+
                     // Business Information
                     to_email: 'creativestage.art@gmail.com',
                     business_name: 'Creative Stage',
                     business_location: 'White Rock, BC',
                     business_website: 'creativestage.art',
-                    
+
                     // Formatted Summary for Quick Reference
-                    quick_summary: `${formData.get('child-name')} • Age ${formData.get('child-age')} • Preschool Program Interest • Start: ${formData.get('start-date') || 'TBD'}`
+                    quick_summary: `${formData.get('child-name')} • Age ${formData.get('child-age')} • ${formData.get('preferred-time') || 'Time TBD'}`
                 };
                 
                 console.log('📧 Sending email with params:', templateParams);
